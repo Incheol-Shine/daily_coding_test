@@ -45,3 +45,31 @@
     # return
 # BOJ3085()
 
+# def BOJ22114(): # 창영이와 점프 (https://www.acmicpc.net/problem/22114)
+    # ### Solution 1
+    # import sys
+
+    # n, k = map(int, input().split())
+    # width = list(map(int, sys.stdin.readline().split()))  # 문제에서 주어진 돌 사이 간격
+
+    # # bound : k 보다 큰 간격들의 index 를 저장한다. 맨 처음, 맨 마지막 index 를 포함한다. ex) if width == 2 3 1 5 3 5 : bound = [-1, 3, 5, 6]
+    # bound = [-1]
+    # bound.extend([i for i in range(len(width)) if width[i] > k])
+    # bound.append(len(width))
+    
+    # # bound 사이 간격을 저장한다. ex) if bound == [-1, 3, 5, 6] : blocks = [4,2,1]
+    
+    # blocks = []
+    # for i in range(1, len(bound)):
+    #     blocks.append(bound[i]-bound[i-1])
+    # answer = 0
+    # if len(blocks) == 1: answer = blocks[0]
+    # else:
+    #     # blocks 의 인접한 두 숫자의 합 중 최댓값을 정답으로 출력한다.
+    #     for i in range(len(blocks)-1):
+    #         answer = max(answer, blocks[i]+blocks[i+1])
+
+    # print(answer)
+    
+    # return
+# BOJ22114()
