@@ -18,3 +18,34 @@
 
     # return
 # BOJ2193()
+
+# def BOJ11660(): # 구간 합 구하기 5 (https://www.acmicpc.net/problem/11660)
+    # import sys
+
+    # n, m = map(int, input().split())
+    # table = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+    
+    # # (0,0) 기준 구간합 구하기
+    # for i in range(n):
+    #     for j in range(1,n):
+    #         table[i][j] += table[i][j-1]
+    
+    # for i in range(1,n):
+    #     for j in range(n):
+    #         table[i][j] += table[i-1][j]
+
+    # def section_sum(*coordination):
+    #     x1,y1,x2,y2 = coordination
+    #     x0 = table[x1-1][y2] if x1>=1 else 0
+    #     y0 = table[x2][y1-1] if y1>=1 else 0
+    #     xy0 = table[x1-1][y1-1] if x1>=1 and y1>=1 else 0
+    #     answer = table[x2][y2] - y0 - x0 + xy0
+    #     print(answer)
+    #     return
+
+    # for _ in range(m):
+    #     x1,y1,x2,y2 = map(int, sys.stdin.readline().split())
+    #     section_sum(x1-1,y1-1,x2-1,y2-1) # index 로 맞춰주기 위해 1을 뺌
+    
+    # return
+# BOJ11660()
