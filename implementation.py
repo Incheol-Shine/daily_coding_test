@@ -73,3 +73,33 @@
     
     # return
 # BOJ22114()
+
+# def BOJ13335(): # 트럭 (https://www.acmicpc.net/problem/13335)
+
+    # import sys
+    # from collections import deque
+
+    # n,w,L = map(int, sys.stdin.readline().split())
+    # trucks = deque(map(int, sys.stdin.readline().split()))
+
+    # u = 0
+    # total_weight = 0
+    # bridge = deque([[False,0]]*w)
+    # # print(bridge)
+    # while True:
+    #     is_last, weight = bridge.popleft()
+    #     total_weight -= weight
+
+    #     if len(trucks) != 0 and total_weight + trucks[0] <= L:
+    #         truck = trucks.popleft()
+    #         flag = False if len(trucks) != 0 else True
+    #         bridge.append([flag, truck])
+    #         total_weight += truck
+    #     else:
+    #         bridge.append([False,0])
+
+    #     u += 1
+    #     # print(u,bridge,trucks)
+    #     if is_last == True: break
+    # print(u)
+# BOJ13335()
