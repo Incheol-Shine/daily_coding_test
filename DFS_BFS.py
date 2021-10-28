@@ -38,3 +38,44 @@
 
     # return
 # BOJ18405()
+
+# def BOJ2644(): # 촌수계산 (https://www.acmicpc.net/problem/2644)
+    # import sys
+    # from collections import deque, defaultdict
+
+    # n = int(input())
+    # a,b = map(int, input().split())
+    # m = int(input())
+
+    # tree = defaultdict(list)
+    # for i in range(m):
+    #     x,y = map(int, sys.stdin.readline().split()) # 방향 있음. 부모, 자식
+    #     tree[x].append(y)
+    #     tree[y].append(x)
+
+    # def bfs():
+    #     visit = [False]*(n+1)
+    #     visit[0] = True
+
+    #     count = 0
+
+    #     q = deque()
+    #     q.append(a)
+    #     visit[a] = True
+
+    #     while q:
+    #         for _ in range(len(q)):
+    #             node = q.popleft()
+    #             if node == b : return count
+    #             for i in tree[node]:
+    #                 if visit[i] == False:
+    #                     q.append(i)
+    #                     visit[i] = True
+    #         count += 1
+        
+    #     else:
+    #         return -1
+
+
+    # print(bfs())
+# BOJ2644()
