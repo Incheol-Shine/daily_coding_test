@@ -49,3 +49,19 @@
     
     # return
 # BOJ11660()
+
+# def BOJ1351(): # 무한 수열 (https://www.acmicpc.net/problem/1351)
+    # n, p, q = map(int, input().split())
+    # global dp
+    # dp = {0:1}
+
+    # def f(num):
+    #     global dp
+
+    #     if num in dp: return dp[num]
+    #     else: 
+    #         dp[num] = f(num//p) + f(num//q)
+    #         return dp[num]
+    # print(f(n))
+    # return
+# BOJ1351()
