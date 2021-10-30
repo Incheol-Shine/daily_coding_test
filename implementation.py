@@ -166,3 +166,54 @@ def BOJ12731(): # 열차 시간표(small) (https://www.acmicpc.net/problem/12731
         
     return
 BOJ12731()
+
+# def BOJ20920():
+    # import sys
+    # from collections import defaultdict
+
+    # global words
+    # n,m = map(int,input().split())
+    # words = defaultdict(int)
+    # for _ in range(n):
+    #     word = sys.stdin.readline().strip()
+    #     # 조건 : 
+    #     # 0. m 보다 긴 단어
+    #     # 1. 자주나오는 단어
+    #     # 2. 긴단어
+    #     # 3. 알파벳 순서
+    #     if len(word) >=m:
+    #         words[word] += 1
+    # arr = list(words.keys())
+
+    # def quick_sort(arr):
+    #     global words
+    #     if len(arr) <= 1:
+    #         return arr
+    #     pivot = arr[len(arr) // 2]
+    #     lesser_arr, equal_arr, greater_arr = [], [], []
+    #     for word in arr:
+    #         # 1. 자주나오는 단어
+    #         if words[word] > words[pivot]:
+    #             lesser_arr.append(word)
+    #         elif words[word] < words[pivot]:
+    #             greater_arr.append(word)
+    #         else:
+    #             # 2. 긴단어
+    #             if len(word) > len(pivot):
+    #                 lesser_arr.append(word)
+    #             elif len(word) < len(pivot):
+    #                 greater_arr.append(word)
+    #             else:
+    #                 # 3. 알파벳 순서
+    #                 if word < pivot:
+    #                     lesser_arr.append(word)
+    #                 elif word > pivot:
+    #                     greater_arr.append(word)
+    #                 else:
+    #                     equal_arr.append(word)
+    #     return quick_sort(lesser_arr) + equal_arr + quick_sort(greater_arr)
+
+    # answer = quick_sort(arr)
+    # for i in answer:
+    #     print(i)
+# BOJ20920()
