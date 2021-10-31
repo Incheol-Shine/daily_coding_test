@@ -65,3 +65,17 @@
     # print(f(n))
     # return
 # BOJ1351()
+
+# def BOJ16493(): # 최대 페이지 수 (https://www.acmicpc.net/problem/16493)
+    # import sys
+    # n,m = map(int, sys.stdin.readline().split())
+    # info = [[0,0]]+[list(map(int, sys.stdin.readline().split())) for _ in range(m)] # 일, 페이지 1부터 시작
+
+    # dp = [[0]*(n+1) for _ in range(m+1)]  # 행: m 개 챕터,  열: n 일
+    # for chapter in range(1,m+1):
+    #     for day in range(1,n+1):
+    #         if day-info[chapter][0] >= 0:
+    #             dp[chapter][day] = max(dp[chapter-1][day], info[chapter][1]+dp[chapter-1][day-info[chapter][0]]) 
+    #         else:
+    #             dp[chapter][day] = dp[chapter-1][day]
+# BOJ16493()
