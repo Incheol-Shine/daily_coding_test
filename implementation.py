@@ -104,70 +104,70 @@
     # print(u)
 # BOJ13335()
 
-def BOJ12731(): # 열차 시간표(small) (https://www.acmicpc.net/problem/12731)
-    import sys
+# def BOJ12731(): # 열차 시간표(small) (https://www.acmicpc.net/problem/12731)
+    # import sys
 
-    def hToM(hhmm):
-        hh, mm = list(map(int,hhmm.split(':')))
-        return hh*60 + mm
+    # def hToM(hhmm):
+    #     hh, mm = list(map(int,hhmm.split(':')))
+    #     return hh*60 + mm
 
-    # 정렬 알고리즘. 
-    # 숫자가 작을수록 뒤에 (내림차순)
-    # 숫자가 같으면 알파벳 순으로 (flag = True 이면 내림차순 (b,a) , False 이면 오름차순 (a,b))
-    def quick_sort(arr,flag): # arr = [[val, alpha]]
-        if len(arr) <= 1:
-            return arr
-        pivot = arr[len(arr) // 2][0]
-        lesser_arr, equal_arr, greater_arr = [], [], []
-        for num in arr:
-            if num[0] < pivot:
-                lesser_arr.append(num)
-            elif num[0] > pivot:
-                greater_arr.append(num)
-            else:
-                equal_arr.append(num)
-        return quick_sort(greater_arr,flag) + sorted(equal_arr, key=lambda x: x[1], reverse=flag) + quick_sort(lesser_arr,flag)
+    # # 정렬 알고리즘. 
+    # # 숫자가 작을수록 뒤에 (내림차순)
+    # # 숫자가 같으면 알파벳 순으로 (flag = True 이면 내림차순 (b,a) , False 이면 오름차순 (a,b))
+    # def quick_sort(arr,flag): # arr = [[val, alpha]]
+    #     if len(arr) <= 1:
+    #         return arr
+    #     pivot = arr[len(arr) // 2][0]
+    #     lesser_arr, equal_arr, greater_arr = [], [], []
+    #     for num in arr:
+    #         if num[0] < pivot:
+    #             lesser_arr.append(num)
+    #         elif num[0] > pivot:
+    #             greater_arr.append(num)
+    #         else:
+    #             equal_arr.append(num)
+    #     return quick_sort(greater_arr,flag) + sorted(equal_arr, key=lambda x: x[1], reverse=flag) + quick_sort(lesser_arr,flag)
 
-    n = int(input())
-    for i in range(n):
-        t = int(sys.stdin.readline().strip())
-        na, nb = map(int, sys.stdin.readline().split())
+    # n = int(input())
+    # for i in range(n):
+    #     t = int(sys.stdin.readline().strip())
+    #     na, nb = map(int, sys.stdin.readline().split())
         
-        a_station = [] # b 에서 온 열차 도착시간 + t, a 에서 출발하는 열차 출발시간
-        b_station = [] # a 에서 온 열차 도착시간 + t, b 에서 출발하는 열차 출발시간
-        for _ in range(na):
-            start, end = map(hToM, sys.stdin.readline().split())
-            a_station.append([start, 'a'])
-            b_station.append([end+t, 'a'])
+    #     a_station = [] # b 에서 온 열차 도착시간 + t, a 에서 출발하는 열차 출발시간
+    #     b_station = [] # a 에서 온 열차 도착시간 + t, b 에서 출발하는 열차 출발시간
+    #     for _ in range(na):
+    #         start, end = map(hToM, sys.stdin.readline().split())
+    #         a_station.append([start, 'a'])
+    #         b_station.append([end+t, 'a'])
 
-        # 두가지 방법으로 정렬하려고 하는데 어떤 자료구조를 사용해야 할까?
-        for _ in range(nb):
-            start, end = map(hToM, sys.stdin.readline().split())
-            a_station.append([end+t, 'b'])
-            b_station.append([start, 'b'])
+    #     # 두가지 방법으로 정렬하려고 하는데 어떤 자료구조를 사용해야 할까?
+    #     for _ in range(nb):
+    #         start, end = map(hToM, sys.stdin.readline().split())
+    #         a_station.append([end+t, 'b'])
+    #         b_station.append([start, 'b'])
 
-        a_station = quick_sort(a_station,False)
-        b_station = quick_sort(b_station,True)
+    #     a_station = quick_sort(a_station,False)
+    #     b_station = quick_sort(b_station,True)
 
-        old, new = 0,0
-        answer_na, answer_nb = na, nb
-        # print(a_station,b_station)
+    #     old, new = 0,0
+    #     answer_na, answer_nb = na, nb
+    #     # print(a_station,b_station)
 
-        for _ in range(len(a_station)):
-            new = a_station.pop()[1]
-            if old == 'b' and new == 'a': answer_na -= 1 # a 역에서는 b에서 출발한 열차가 도착후, a 역에서 출발하는 열차가 있는경우, 열차개수 1개 차감.
-            old = new
-        for _ in range(len(b_station)):
-            new = b_station.pop()[1]
-            if old == 'a' and new == 'b': answer_nb -= 1 # b 역에서는 a에서 출발한 열차가 도착후, b 역에서 출발하는 열차가 있는 경우, 열차개수 1개 차감.
-            old = new
+    #     for _ in range(len(a_station)):
+    #         new = a_station.pop()[1]
+    #         if old == 'b' and new == 'a': answer_na -= 1 # a 역에서는 b에서 출발한 열차가 도착후, a 역에서 출발하는 열차가 있는경우, 열차개수 1개 차감.
+    #         old = new
+    #     for _ in range(len(b_station)):
+    #         new = b_station.pop()[1]
+    #         if old == 'a' and new == 'b': answer_nb -= 1 # b 역에서는 a에서 출발한 열차가 도착후, b 역에서 출발하는 열차가 있는 경우, 열차개수 1개 차감.
+    #         old = new
 
-        print(f'Case #{i+1}:',answer_na,answer_nb)
+    #     print(f'Case #{i+1}:',answer_na,answer_nb)
         
-    return
-BOJ12731()
+    # return
+# BOJ12731()
 
-# def BOJ20920():
+# def BOJ20920(): # 영단어 암기는 괴로워 (https://www.acmicpc.net/problem/status/20920)
     # import sys
     # from collections import defaultdict
 
@@ -217,3 +217,13 @@ BOJ12731()
     # for i in answer:
     #     print(i)
 # BOJ20920()
+
+# def BOJ20920_2(): # 영단어 암기는 괴로워 2번째 해답
+    # import sys
+    # from collections import Counter # 1번째 해답코드의 words 에 해당하는 dic 을 바로 만들어 준다.
+
+    # n,m = map(int, sys.stdin.readline().split())
+    # words = Counter(sys.stdin.readline().strip() for _ in range(n))
+    # words = sorted(words, key = lambda x: (-words[x], -len(x), x)) # sort 에서 여러 조건으로 나누는 경우
+    # print(*words, sep = "\n")
+# BOJ20920_2()
