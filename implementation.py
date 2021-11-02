@@ -227,3 +227,56 @@
     # words = sorted(words, key = lambda x: (-words[x], -len(x), x)) # sort 에서 여러 조건으로 나누는 경우
     # print(*words, sep = "\n")
 # BOJ20920_2()
+
+# def BOJ2174(): # 로봇 시뮬레이션 (https://www.acmicpc.net/problem/2174)
+    # import sys
+
+    # global robots
+    # global world
+
+    # a,b = map(int, input().split())
+    # n,m = map(int, input().split())
+
+
+    # world = [[-1]*b for _ in range(a)]
+    # dir_word = {'N':0, 'E':1, 'S':2, 'W':3}
+    # dir_coord = [(0,1),(1,0),(0,-1),(-1,0)] # n, e, s, w
+
+    # robots=[]
+    # for num in range(n):
+    #     x,y,z = sys.stdin.readline().split()
+    #     x,y = map(lambda t : int(t)-1, (x,y))
+    #     robots.append([x, y, dir_word[z]])
+    #     world[x][y] = num # num 은 로봇 번호
+
+    # question = [sys.stdin.readline().split() for _ in range(m)]
+
+    # def f():
+    #     global robots
+    #     global world
+
+    #     for k in range(len(question)):
+    #         num, order, count = map(lambda x: int(x) if x.isdigit() else x, question[k])
+    #         num -= 1    # 로봇 번호는 0부터 시작
+    #         if order == 'L':
+    #             robots[num][2] = (robots[num][2] + 3*count)%4
+    #         elif order == 'R':
+    #             robots[num][2] = (robots[num][2] + count)%4
+    #         elif order == 'F':
+    #             n_x, n_y = robots[num][:2]
+    #             x, y = dir_coord[robots[num][2]]
+    #             for i in range(count):
+    #                 n_x += x
+    #                 n_y += y
+    #                 if not(0 <= n_x < a and 0 <= n_y < b) : 
+    #                     print(f"Robot {num+1} crashes into the wall")
+    #                     return 
+    #                 if world[n_x][n_y] != -1: 
+    #                     print(f"Robot {num+1} crashes into robot {world[n_x][n_y]+1}")
+    #                     return
+    #                 if i == count-1:
+    #                     world[n_x][n_y], world[robots[num][0]][robots[num][1]] = world[robots[num][0]][robots[num][1]], world[n_x][n_y]
+    #                     robots[num][0], robots[num][1] = n_x, n_y
+    #     else: print("OK")
+    # f()
+# BOJ2174()
