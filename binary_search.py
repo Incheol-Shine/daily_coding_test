@@ -29,4 +29,38 @@
     #         print('danger')
 # BOJ3649()
 
+# def BOJ17609(): # 회문(https://www.acmicpc.net/problem/17609)
+    # import sys
+
+    # def f(i,j,flag):
+        
+    #     while i<=j:
+    #         if word[i] == word[j]:
+    #             i += 1
+    #             j -= 1
+    #         elif word[i] != word[j] and flag == False:
+    #             a = f(i+1,j,True)
+    #             b = f(i,j-1,True)
+
+    #             if a!=2 or b!=2:
+    #                 return 1
+    #             else:
+    #                 return 2
+
+    #         else: return 2
+        
+    #     if flag == False: return 0
+    #     else: return 1
+
+    # t = int(input())
+
+    # for _ in range(t):
+    #     word = sys.stdin.readline().strip()
+
+    #     i = 0
+    #     j = len(word)-1
+    #     flag = False # 한 문자 삭제 여부
+    #     print(f(i,j,flag))
+# BOJ17609()
+
 ###
