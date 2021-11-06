@@ -280,3 +280,30 @@
     #     else: print("OK")
     # f()
 # BOJ2174()
+
+# def BOJ16931(): # 겉넓이 구하기 (https://www.acmicpc.net/problem/16931)
+    # import sys
+
+    # n,m = map(int, input().split())
+    # dice = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+
+    # def f(matrix): # 작은값에서 큰값으로 갈때 더한다.
+    #     area = 0
+    #     for i in range(len(matrix)):
+    #         for j in range(len(matrix[0])):
+    #             if j-1 <0: pre = 0
+    #             else: pre = matrix[i][j-1]
+    #             if matrix[i][j] > pre:
+    #                 area += matrix[i][j] - pre
+    #     return area
+
+    # row_side = f(dice)
+    # col_side = f(list(zip(*dice)))
+    # up_side = 0
+    # for i in dice:
+    #     for j in i:
+    #         if j != 0: up_side += 1
+
+    # answer = (row_side + col_side + up_side) * 2
+    # print(answer)
+# BOJ16931()
