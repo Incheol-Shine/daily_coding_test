@@ -307,3 +307,57 @@
     # answer = (row_side + col_side + up_side) * 2
     # print(answer)
 # BOJ16931()
+
+# def BOJ20055(): #컨베이어 벨트 위의 로봇(https://www.acmicpc.net/problem/20055)
+
+    # import sys
+    # from collections import deque
+
+    # n,k = map(int, sys.stdin.readline().split())
+    # belt = deque()
+    # belt.extend(map(int,sys.stdin.readline().split()))
+
+    # robot = deque()
+    # robot.extend([0]*n)
+
+    # cycle = 0
+
+    # def f():
+    #     cycle = 0
+    #     cnt = 0
+    #     for i in belt:
+    #         if i == 0: cnt += 1
+    #     while True:
+    #         cycle += 1
+    #         # 1
+    #         robot.appendleft(0)
+    #         robot.pop()
+    #         belt.appendleft(belt.pop())
+
+    #         if robot[-1] == 1: # 로봇이 내리는 위치에 있는 경우, 내린다.
+    #             robot[-1] = 0
+
+    #         # 2
+    #         for i in range(n-2,-1,-1): #마지막 칸은 로봇이 없으므로 제외
+    #             if robot[i] == 1 and robot[i+1] == 0 and belt[i+1] >= 1:
+    #                 robot[i+1] = 1
+    #                 belt[i+1] -= 1
+    #                 if belt[i+1] == 0: cnt += 1
+    #                 robot[i] = 0
+
+    #         if robot[-1] == 1: # 로봇이 내리는 위치에 있는 경우, 내린다.
+    #             robot[-1] = 0
+
+    #         # 3
+    #         if belt[0] != 0:
+    #             robot[0] = 1
+    #             belt[0] -= 1
+    #             if belt[0] == 0: cnt += 1
+
+    #         # 4
+            
+    #         if cnt == k: return cycle
+            
+    # print(f())
+# BOJ20055()
+
