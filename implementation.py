@@ -308,7 +308,7 @@
     # print(answer)
 # BOJ16931()
 
-# def BOJ20055(): #컨베이어 벨트 위의 로봇(https://www.acmicpc.net/problem/20055)
+# def BOJ20055(): # 컨베이어 벨트 위의 로봇 (https://www.acmicpc.net/problem/20055)
 
     # import sys
     # from collections import deque
@@ -361,3 +361,28 @@
     # print(f())
 # BOJ20055()
 
+# def BOJ17276(): # 배열 돌리기 (https://www.acmicpc.net/problem/17276)
+    # import sys
+
+    # def turn(n,d,board):
+    #     for i in range(n//2):
+    #         # 이동하는 8개의 좌표를 시계방향으로 나열
+    #         cw = [[i,i], [i, n//2], [i, n-1-i], [n//2, n-1-i], [n-1-i, n-1-i], [n-1-i, n//2], [n-1-i, i], [n//2, i]]
+    #         # befor : 원래 데이터를 백업
+    #         before = [board[a][b] for a,b in cw]
+    #         for idx,(x,y) in enumerate(cw):
+    #             board[x][y] = before[(idx+(8-d))%8] # 회전시킨 데이터로 교체
+    #     # 출력
+    #     for r in board:
+    #         for c in r:
+    #             print(c, end = " ")
+    #         print()
+
+    # t = int(input())
+    # for _ in range(t):
+    #     n,d = map(int, sys.stdin.readline().split())
+    #     d = d//45 if d>=0 else (360+d)//45  # 음수, 양수 통일
+    #     board = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+
+    #     turn(n,d,board)
+# BOJ17276()
