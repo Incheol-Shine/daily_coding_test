@@ -367,11 +367,12 @@
     # def turn(n,d,board):
     #     for i in range(n//2):
     #         # 이동하는 8개의 좌표를 시계방향으로 나열
-    #         cw = [[i,i], [i, n//2], [i, n-1-i], [n//2, n-1-i], [n-1-i, n-1-i], [n-1-i, n//2], [n-1-i, i], [n//2, i]]
-    #         # befor : 원래 데이터를 백업
-    #         before = [board[a][b] for a,b in cw]
-    #         for idx,(x,y) in enumerate(cw):
-    #             board[x][y] = before[(idx+(8-d))%8] # 회전시킨 데이터로 교체
+    #         # cw = [[i,i], [i, n//2], [i, n-1-i], [n//2, n-1-i], [n-1-i, n-1-i], [n-1-i, n//2], [n-1-i, i], [n//2, i]]
+    #         ccw = [[i,i], [n//2, i], [n-1-i, i], [n-1-i, n//2], [n-1-i, n-1-i], [n//2, n-1-i], [i, n-1-i], [i, n//2]]
+    #         # before : 원래 데이터를 백업
+    #         before = [board[a][b] for a,b in ccw]
+    #         for idx,(x,y) in enumerate(ccw):
+    #             board[x][y] = before[(idx+d)%8] # 회전시킨 데이터로 교체
     #     # 출력
     #     for r in board:
     #         for c in r:
@@ -386,3 +387,26 @@
 
     #     turn(n,d,board)
 # BOJ17276()
+
+# def BOJ2799(): # 블라인드 (https://www.acmicpc.net/problem/2799)
+    # import sys
+
+    # m,n = map(int, sys.stdin.readline().split())
+    # windows= list(sys.stdin.readline() for _ in range(m*5+1))
+    # blind = [0]*5
+    # count_star = [0]*4
+
+    # for x in range(m):
+    #     for i in range(1+x*5, 5+x*5):
+    #         count_star[i-x*5-1] += windows[i].count('*')//4
+    # blind[0] = n*m-count_star[0]
+
+    # while count_star.count(0) != 4:
+    #     idx = 4-count_star.count(0)
+    #     blind[idx] += 1
+    #     for i in range(4):
+    #         if count_star[i] != 0: count_star[i] -= 1
+
+
+    # print(*blind)
+# BOJ2799()
