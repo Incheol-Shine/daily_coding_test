@@ -410,3 +410,36 @@
 
     # print(*blind)
 # BOJ2799()
+
+# def BOJ3613(): # Java VS C++ (https://www.acmicpc.net/problem/3613)
+    # import sys
+
+    # name = sys.stdin.readline().strip()
+
+    # c,java = False,False
+    # answer = ''
+    # for i in name:
+    #     if i == "_" :
+    #         c = True
+    #     if i.isupper(): 
+    #         java = True
+    # if name[-1]== '_' or name[0].isupper() or name[0]=='_': print('Error!')
+    # elif c and java:
+    #     print('Error!')
+    # elif c:
+    #     cnt = 0
+    #     answer = list(name)
+    #     while cnt<len(name):
+    #         if cnt+1<len(name) and answer[cnt] =='_':
+    #             if answer[cnt+1]=='_':
+    #                 answer = 'Error!'
+    #                 break
+    #             answer[cnt+1] = answer[cnt+1].upper()
+    #         cnt += 1
+    #     for i in answer:
+    #         if i != '_':print(i, end = '')
+    # else:
+    #     for i in name:
+    #         if i.isupper():print('_'+i.lower(),end = '')
+    #         else: print(i, end = '')
+# BOJ3613()
