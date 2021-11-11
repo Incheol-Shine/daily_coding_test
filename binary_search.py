@@ -93,3 +93,17 @@
 # BOJ17609_2()
 
 ###
+
+# def BOJ1205(): # 등수 구하기 (https://www.acmicpc.net/problem/1205)
+    # import sys
+    # from bisect import bisect_left
+
+    # n, result, p = map(int,sys.stdin.readline().split())
+    # ranking = list(map(lambda x: int(x)*(-1), sys.stdin.readline().split()))
+
+    # answer = bisect_left(ranking, result*-1) +1
+
+    # if p == len(ranking) and ranking[-1] == result*-1: print(-1)
+    # elif answer <= p : print(answer)
+    # else: print(-1)
+# BOJ1205()
