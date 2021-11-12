@@ -443,3 +443,26 @@
     #         if i.isupper():print('_'+i.lower(),end = '')
     #         else: print(i, end = '')
 # BOJ3613()
+
+# def BOJ23253(): # 자료구조는 정말 최고야 (시공의 폭풍 아님) (https://www.acmicpc.net/problem/23253)
+    # import sys
+
+    # n, m = map(int, sys.stdin.readline().split())
+    # stacks = {}
+    # for i in range(m):
+    #     k = sys.stdin.readline().strip()
+    #     stacks[i] = list(map(int, sys.stdin.readline().split()))
+    
+    # cnt = 1
+    # while cnt <= n: # 교과서 수만큼 반복
+    #     for i in range(m):
+    #         if len(stacks[i]) !=0 and stacks[i][-1] == cnt:
+    #             cnt += 1
+    #             stacks[i].pop()
+    #             break
+    #     else:
+    #         print("No")
+    #         break
+    # else:
+    #     print("Yes")
+# BOJ23253()
