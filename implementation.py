@@ -466,3 +466,21 @@
     # else:
     #     print("Yes")
 # BOJ23253()
+
+# def BOJ20157(): # 화살을 쏘자! (https://www.acmicpc.net/problem/20157)
+    # import sys
+    # from collections import defaultdict
+    # from math import gcd
+
+    # n = int(input())
+
+    # dic = defaultdict(int)
+    # # 각 x,y를 최대공약수로 나눠서 같은 x,y조합 수를 구한다.
+    # for _ in range(n):
+    #     x,y = map(int, sys.stdin.readline().split())
+    #     choidae = gcd(x,y)
+    #     dic[(x//choidae, y//choidae)] += 1
+
+    # answer = max(dic.keys(), key = lambda x: dic[x])
+    # print(dic[answer])
+# BOJ20157()
