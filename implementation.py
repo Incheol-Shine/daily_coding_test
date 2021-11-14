@@ -484,3 +484,15 @@
     # answer = max(dic.keys(), key = lambda x: dic[x])
     # print(dic[answer])
 # BOJ20157()
+
+# def BOJ1476(): # 날짜 계산 (https://www.acmicpc.net/problem/1476)
+    # a, b, c = map(int, input().split())
+    # count = 1
+    # while True:
+    #     if (count-1) % 15 == a-1:
+    #         if (count-1) % 28 == b-1:
+    #             if (count-1) % 19 == c-1:
+    #                 break
+    #     count += 1
+    # print(count)
+# BOJ1476()
