@@ -496,3 +496,23 @@
     #     count += 1
     # print(count)
 # BOJ1476()
+
+# def BOJ1748(): # 수 이어 쓰기 1 (https://www.acmicpc.net/problem/1748)
+    # def e(): # 10 의 제곱근 반환
+    #     x = n
+    #     answer = 0 # 지수
+    #     while x!=0:
+    #         x//=10
+    #         answer += 1
+    #     return answer
+
+    # n = int(input())
+    # k = e()
+
+    # answer = 0
+    # for i in range(1,k):
+    #     answer += 9*(10**(i-1))*i
+    # answer += (n-10**(k-1)+1)*k
+
+    # print(answer)
+# BOJ1748()
