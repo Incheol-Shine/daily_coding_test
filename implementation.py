@@ -516,3 +516,38 @@
 
     # print(answer)
 # BOJ1748()
+
+# def BOJ14676(): # 영우는 사기꾼? (https://www.acmicpc.net/problem/14676)
+    # import sys
+    # global tower
+
+    # n, m, k = map(int, sys.stdin.readline().split())
+    # condition = [[] for _ in range(n+1)]
+    # tower = [0]*(n+1)
+    # for _ in range(m):
+    #     x,y = map(int, sys.stdin.readline().split())
+    #     condition[y].append(x) # y를 건설하기 위해서는 x를 건설해야 함
+    
+    # def f():
+    #     global tower
+    #     for _ in range(k):
+    #         order, num = map(int, sys.stdin.readline().split())
+    #         if order == 1:
+    #             for i in condition[num]:
+    #                 if tower[i] == 0: # 조건이 되는 건물이 안 지어진 경우
+    #                     print("Lier!")
+    #                     return
+    #             tower[num] += 1
+
+    #         if order == 2:
+    #             if tower[num] == 0: # 파괴할 건물이 없는 경우
+    #                 print("Lier!")
+    #                 return
+    #             else: 
+    #                 tower[num] -= 1
+
+    #     print("King-God-Emperor")
+
+    # f()
+# BOJ14676()
+
