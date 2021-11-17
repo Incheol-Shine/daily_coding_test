@@ -551,3 +551,16 @@
     # f()
 # BOJ14676()
 
+# def BOJ16466(): # 콘서트 (https://www.acmicpc.net/problem/16466)
+    # import sys
+    # from heapq import heapify, heappop
+
+    # n=int(sys.stdin.readline().strip())
+    # heap = list(map(int,sys.stdin.readline().split()))
+    # heapify(heap)
+
+    # for i in range(1,10**6+1):
+    #     if len(heap) == 0 or i != heappop(heap):
+    #         print(i)
+    #         break
+# BOJ16466()
