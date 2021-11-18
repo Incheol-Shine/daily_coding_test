@@ -564,3 +564,17 @@
     #         print(i)
     #         break
 # BOJ16466()
+
+# def BOJ16466_2(): # 콘서트 2nd solution
+    # import sys
+    
+    # n=int(sys.stdin.readline().strip())
+    # # arr 가 list 인경우, 시간초과가 나온다.
+    # arr = set(map(int,sys.stdin.readline().split()))
+
+    # for i in range(1,10**6+1):
+    #     # set 에서와 list 에서 in 함수의 작동이 다르게 이루어지는 것 같다.
+    #     if i not in arr:
+    #         print(i)
+    #         break
+# BOJ16466_2()
