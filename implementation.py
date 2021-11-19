@@ -532,6 +532,7 @@
     #     global tower
     #     for _ in range(k):
     #         order, num = map(int, sys.stdin.readline().split())
+    #         # 건물 짓기
     #         if order == 1:
     #             for i in condition[num]:
     #                 if tower[i] == 0: # 조건이 되는 건물이 안 지어진 경우
@@ -578,3 +579,50 @@
     #         print(i)
     #         break
 # BOJ16466_2()
+
+# def BOJ14676_2(): # 영우는 사기꾼? 2nd solution
+    # import sys
+    # global tower
+
+    # n, m, k = map(int, sys.stdin.readline().split())
+    # condition = [[] for _ in range(n+1)]
+    # indegree = [0]*(n+1)
+    # tower = [0]*(n+1)
+
+    # for _ in range(m):
+    #     x,y = map(int, sys.stdin.readline().split())
+    #     condition[x].append(y) # y를 건설하기 위해서는 x를 건설해야 함
+    #     indegree[y] += 1
+
+    
+    # make_check, delete_check = True, True
+    # for _ in range(k):
+    #     order, num = map(int, sys.stdin.readline().split())
+    #     # 건물 짓기
+    #     if order == 1:
+    #         if indegree[num] == 0:
+    #             tower[num] += 1
+    #             if tower[num] == 1:
+    #                 for i in condition[num]:
+    #                     indegree[i] -= 1
+    #         else:
+    #             make_check = False
+    #             break
+
+    #     # 건물 부수기
+    #     if order == 2:
+    #         if tower[num] > 0: # 파괴할 건물이 있는 경우
+    #             tower[num] -= 1
+    #             if tower[num] == 0:
+    #                 for i in condition[num]:
+    #                     indegree[i] += 1
+    #         else: 
+    #             delete_check = False
+    #             break
+
+    # if make_check and delete_check:
+    #     print('King-God-Emperor')
+    # else:
+    #     print('Lier!')
+
+# BOJ14676_2()
