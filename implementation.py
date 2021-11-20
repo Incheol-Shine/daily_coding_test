@@ -580,7 +580,7 @@
     #         break
 # BOJ16466_2()
 
-# def BOJ14676_2(): # 영우는 사기꾼? 2nd solution
+# def BOJ14676_2(): # 영우는 사기꾼? 2nd solution (위상정렬?)
     # import sys
     # global tower
 
@@ -624,5 +624,4 @@
     #     print('King-God-Emperor')
     # else:
     #     print('Lier!')
-
 # BOJ14676_2()

@@ -79,3 +79,41 @@
     #         else:
     #             dp[chapter][day] = dp[chapter-1][day]
 # BOJ16493()
+
+# def BOJ1516(): # 게임개발 (위상정렬?) (https://www.acmicpc.net/problem/1516)
+    # import sys
+    # from collections import defaultdict
+
+    # dic = defaultdict(list)
+
+    # n = int(input())
+    # dp = [-1]*(n+1)
+    # times  = [0]            # 건물을 짓는데 걸리는 시간들
+
+    # for i in range(1,n+1):
+    #     time, *building = map(int,sys.stdin.readline().split())
+    #     times.append(time)
+    #     dic[i] = building
+
+
+    # def find_dp(i):
+    #     if dp[i] != -1: return dp[i]
+        
+    #     maximum = 0
+    #     for x in dic[i]:
+    #         if x == -1 : break
+    #         if dp[x] == -1:
+    #             dp[x] = find_dp(x)
+
+    #         maximum = max(maximum, dp[x])
+
+    #     dp[i] = times[i] + maximum
+    #     return dp[i]
+
+    # for i in range(1,n+1):
+    #     if -1 not in dp[1:]: break
+    #     find_dp(i)
+
+    # for i in dp[1:]:
+    #     print(i)
+# BOJ1516()
