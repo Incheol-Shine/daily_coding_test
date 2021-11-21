@@ -625,3 +625,32 @@
     # else:
     #     print('Lier!')
 # BOJ14676_2()
+
+# def BOJ23253(): # 자료구조는 정말 최고야 2nd solution
+    # import sys
+
+    # n, m = map(int, sys.stdin.readline().split())
+    # stacks = []
+    # for i in range(m):
+    #     k = sys.stdin.readline().strip()
+    #     stacks.append(list(map(int, sys.stdin.readline().split())))
+    # cnt = 1
+    # stacks.sort(key = lambda x: x[-1])
+
+    # while cnt <= n: # stacks 가 빈 리스트일 때 종료
+    #     for i in range(len(stacks)):
+    #         if len(stacks[i]) == 0: continue
+    #         if stacks[i][-1] == cnt:
+    #             stacks[i].pop()
+    #             cnt += 1
+    #         else:
+    #             break
+        
+    #     stacks.sort(key = lambda x: x[-1] if len(x)!=0 else 999999)
+    #     if len(stacks[0]) !=0 and stacks[0][-1] != cnt:
+    #         print("No")
+    #         break
+    # else:
+    #     print("Yes")
+# BOJ23253()
+
