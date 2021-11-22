@@ -626,7 +626,7 @@
     #     print('Lier!')
 # BOJ14676_2()
 
-# def BOJ23253(): # 자료구조는 정말 최고야 2nd solution
+# def BOJ23253_2(): # 자료구조는 정말 최고야 2nd solution
     # import sys
 
     # n, m = map(int, sys.stdin.readline().split())
@@ -652,5 +652,21 @@
     #         break
     # else:
     #     print("Yes")
-# BOJ23253()
+# BOJ23253_2()
 
+# def BOJ23253_3(): # 자료구조는 정말 최고야 3rd solution
+    # import sys
+
+    # def is_sorted(arr):
+    #     return all(arr[i]>arr[i+1] for i in range(len(arr)-1))
+
+    # n, m = map(int, sys.stdin.readline().split())
+    # for i in range(m):
+    #     k = int(sys.stdin.readline().strip())
+    #     stack = list(map(int, sys.stdin.readline().split()))
+    #     if is_sorted(stack) == False:
+    #         print("No")
+    #         break
+    # else:
+    #     print("Yes")
+# BOJ23253_3()
