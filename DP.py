@@ -117,3 +117,21 @@
     # for i in dp[1:]:
     #     print(i)
 # BOJ1516()
+
+# def BOJ12865(): # 평범한 배낭- 완전탐색 (https://www.acmicpc.net/problem/12865)
+    import sys
+    # 완전탐색 - 비트연산을 이용해 모든 부분집합을 구해 탐색
+    # n,k = map(int, sys.stdin.readline().split())
+    # wandv=[list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+    # answer = 0
+    # for i in range(1<<n):
+    #     cnt, value = 0, 0
+    #     for j in range(n):
+    #         if i & 1<<j:
+    #             cnt += wandv[j][0]
+    #             value += wandv[j][1]
+    #         if cnt > k: break
+    #     else:
+    #         answer = max(answer,value)
+    # print(answer)
+# BOJ12865()
