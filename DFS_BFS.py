@@ -79,3 +79,67 @@
 
     # print(bfs())
 # BOJ2644()
+
+# def BOJ16920(): # 확장 게임 (https://www.acmicpc.net/problem/16920)
+    # import sys
+    # from collections import deque, defaultdict
+    # global board
+    # global answer
+
+    # n,m,p = map(int, sys.stdin.readline().split())
+    # s = list(map(int, sys.stdin.readline().split()))
+    # board = [list(map(lambda x: int(x) if x.isdigit() else x, sys.stdin.readline().strip())) for _ in range(n)]
+    
+    # coord = defaultdict(list)
+    # for i in range(n):
+    #     for j in range(m):
+    #         if board[i][j] != '.':
+    #             num = board[i][j]
+    #             coord[num].append((num, i, j)) # q 에 담을 거 : 거리, x, y 좌표
+
+    # q = deque()
+    # for i in range(1,p+1):
+    #     q.extend(coord[i])
+        
+    # dir = [(0,1),(1,0),(0,-1),(-1,0)]
+    # answer = [0]*p
+
+    # def bfs_1(l, num, x, y): # l은 거리, q 는 좌표
+    #     global board
+    #     global answer
+
+    #     q = deque()
+    #     q.append((num,x,y))
+    #     count = 0
+    #     while q:
+    #         if count >= l: return q
+    #         for _ in range(len(q)):
+    #             num,x,y = q.popleft()
+    #             answer[num-1] += 1
+
+    #             for i,j in dir:
+    #                 n_x, n_y = x+i, y+j
+    #                 if not(0<=n_x<n and 0<=n_y<m): continue
+    #                 if board[n_x][n_y] != '.': continue
+                    
+    #                 board[n_x][n_y] = num
+    #                 q.append((num,n_x, n_y))
+    #         count += 1
+    #     return q
+
+    # def bfs_2(q):
+    #     global board
+    #     global answer
+
+    #     count = 0
+    #     while q:
+    #         num, x, y = q.popleft()
+
+    #         board[x][y] = num
+    #         small_q = bfs_1(s[num-1], num, x, y)
+    #         q+=small_q
+    #     return q
+
+    # bfs_2(q)
+    # print(*answer)
+# BOJ16920()

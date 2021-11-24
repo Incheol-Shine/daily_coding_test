@@ -119,7 +119,7 @@
 # BOJ1516()
 
 # def BOJ12865(): # 평범한 배낭- 완전탐색 (https://www.acmicpc.net/problem/12865)
-    import sys
+    # import sys
     # 완전탐색 - 비트연산을 이용해 모든 부분집합을 구해 탐색
     # n,k = map(int, sys.stdin.readline().split())
     # wandv=[list(map(int, sys.stdin.readline().split())) for _ in range(n)]
@@ -135,3 +135,4 @@
     #         answer = max(answer,value)
     # print(answer)
 # BOJ12865()
+
