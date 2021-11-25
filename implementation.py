@@ -670,3 +670,35 @@
     # else:
     #     print("Yes")
 # BOJ23253_3()
+
+# def BOJ8911(): # 거북이 (https://www.acmicpc.net/problem/8911)
+    # import sys
+
+    # t = int(input())
+    # dir = [(0,1),(1,0),(0,-1),(-1,0)] # x,y 기준 상, 우, 하, 좌 - 시계방향
+
+    # for _ in range(t):
+    #     order = sys.stdin.readline().strip()
+    #     min_x, max_x, min_y, max_y = 0,0,0,0
+    #     turtle_dir = 0
+    #     turtle_x, turtle_y = 0,0
+    #     for i in order:
+    #         if i == 'F':
+    #             turtle_x += dir[turtle_dir][0]
+    #             turtle_y += dir[turtle_dir][1]
+    #         elif i == 'B':
+    #             turtle_x -= dir[turtle_dir][0]
+    #             turtle_y -= dir[turtle_dir][1]
+    #         elif i == 'L':
+    #             turtle_dir = (turtle_dir+3)%4
+    #             continue
+    #         elif i == 'R':
+    #             turtle_dir = (turtle_dir+1)%4
+    #             continue
+    #         min_x = min(turtle_x, min_x)
+    #         max_x = max(turtle_x, max_x)
+    #         min_y = min(turtle_y, min_y)
+    #         max_y = max(turtle_y, max_y)
+
+    #     print((max_x-min_x)*(max_y-min_y))
+# BOJ8911()
