@@ -702,3 +702,27 @@
 
     #     print((max_x-min_x)*(max_y-min_y))
 # BOJ8911()
+
+# def BOJ17359(): # 전구 길만 걷자 (https://www.acmicpc.net/problem/17359)
+    # import sys
+    # from itertools import permutations
+
+    # n = int(input())
+    # bulbs = [list(*map(list,sys.stdin.readline().split())) for _ in range(n)]
+    # changes = [0]*n
+    # for i in range(n):
+    #     for j in range(len(bulbs[i])-1):
+    #         x = bulbs[i][j] + bulbs[i][j+1]
+    #         if x == "10" or x == "01":
+    #             changes[i] += 1
+
+    # permute = permutations(bulbs)
+    # min_change = 99
+    # for i in permute:
+    #     change = 0
+    #     for j in range(n-1):
+    #         if i[j][-1] != i[j+1][0] : change += 1
+    #     min_change = min(change, min_change)
+    # answer = sum(changes) + min_change
+    # print(answer)
+# BOJ17359()
