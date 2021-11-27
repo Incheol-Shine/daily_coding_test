@@ -726,3 +726,29 @@
     # answer = sum(changes) + min_change
     # print(answer)
 # BOJ17359()
+
+# def BOJ16923(): # 다음 다양한 단어 (https://www.acmicpc.net/problem/16923)
+    # import sys
+    # from collections import defaultdict
+
+    # s = sys.stdin.readline().strip()
+    
+    # def f(s):
+    #     all_alpha = set('abcdefghijklmnopqrstuvwxyz')
+    #     next_s = s
+    #     while next_s:
+    #         left_alpha = sorted(list(all_alpha - set(next_s)))
+
+    #         # left_alpha 중 가장 작은거를 추가해서 다음 단어 만들기
+    #         if len(left_alpha) > 0: 
+    #             for i in left_alpha:
+    #                 if s < next_s+i:
+    #                     print(next_s+i)
+    #                     return
+    #         # 다음 단어들 중 다양한 단어 찾기
+    #         next_s = next_s[:-1]
+    #     else:
+    #         print(-1)
+    #         return
+    # f(s)
+# BOJ16923()
