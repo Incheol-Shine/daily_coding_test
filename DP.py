@@ -136,3 +136,20 @@
     # print(answer)
 # BOJ12865()
 
+# def BOJ9251(): # LCS (https://www.acmicpc.net/problem/9251)
+    # import sys
+
+    # word1 = ' '+sys.stdin.readline().strip()
+    # word2 = ' '+sys.stdin.readline().strip()
+
+    # # word1 을 열방향, word2 를 행방향
+    # dp = [[0]*(len(word1)) for _ in range(len(word2))]
+    # for i in range(1, len(word2)):
+    #     for j in range(1, len(word1)):
+    #         if word2[i] == word1[j]:
+    #             dp[i][j] = dp[i-1][j-1] + 1
+    #         else:
+    #             dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+    # print(dp[-1][-1])
+# BOJ9251()

@@ -138,7 +138,6 @@
     #         board[x][y] = num
     #         small_q = bfs_1(s[num-1], num, x, y)
     #         q+=small_q
-    #     return q
 
     # bfs_2(q)
     # print(*answer)
