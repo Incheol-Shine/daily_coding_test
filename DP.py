@@ -153,3 +153,27 @@
 
     # print(dp[-1][-1])
 # BOJ9251()
+
+# def BOJ12865_2(): # 평범한 배낭 - DP
+
+    # 표를 그리게 되는 경우가 많다.
+    # 주의할 건, 표를 그리고 유추를 하는데 정확한 - 논리적이고 합리적인 관계식을 찾아야 한다.
+    # 그냥 추측으로 때려 맞추면 안된다.
+
+    # import sys
+
+    # n, k= map(int, input().split())
+    # dp = [[0]*(k+1) for _ in range(n+1)]
+
+    # w,v = [0], [0]
+    # for i in range(1,n+1):
+    #     a,b = map(int, sys.stdin.readline().split())
+    #     w.append(a)
+    #     v.append(b)
+    #     for j in range(1, k+1):
+    #         if j >= w[i]:
+    #             dp[i][j] = max(dp[i-1][j-w[i]] + v[i], dp[i-1][j])
+    #         else:
+    #             dp[i][j] = dp[i-1][j]
+    # print(dp[-1][-1])
+# BOJ12865_2()
