@@ -753,3 +753,45 @@
     # f(s)
 # BOJ16923()
 
+# def BOJ14500(): # 테트로미노 (https://www.acmicpc.net/problem/14500)
+    # import sys
+
+    # dir = [(-1,0),(0,1),(1,0),(0,-1)]
+    # tetromino = [[[1],[1],[1]],
+    #             [[1],[2],[3]],
+    #             [[2],[2],[1]],
+    #             [[2],[2],[3]],
+    #             [[2],[1],[2]],
+    #             [[2],[3],[2]],
+    #             [[1],[1,2]]]
+
+    
+    # def tetro_sum(x,y,shape):
+    #     answer = paper[x][y]
+    #     for arr in shape:
+    #         for num in arr:
+    #             i,j = dir[num]
+    #             n_x, n_y = x+i, y+j
+    #             if not(0<=n_x<n and 0<=n_y<m): return -1
+    #             answer += paper[n_x][n_y]
+    #         x, y = n_x, n_y
+
+    #     return answer
+        
+
+
+    # n,m = map(int,sys.stdin.readline().split())
+    # paper = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+    # total = []
+
+    # for shape in tetromino:
+    #     for i in range(4):
+    #         rotate = list(map(lambda x: list(map(lambda y: (y+i)%4, x)),shape))
+    #         for x in range(n):
+    #             for y in range(m):
+    #                 value = tetro_sum(x,y,rotate)
+    #                 if value != -1:
+    #                     total.append(value)
+    # answer = max(total)
+    # print(answer)
+# BOJ14500()
