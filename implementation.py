@@ -795,3 +795,4 @@
     # answer = max(total)
     # print(answer)
 # BOJ14500()
+
