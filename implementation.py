@@ -796,3 +796,47 @@
     # print(answer)
 # BOJ14500()
 
+# def BOJ16926(): # 배열 돌리기 (https://www.acmicpc.net/problem/16926)
+    # import sys
+
+    # n,m,r = map(int, sys.stdin.readline().split())
+    # matrix = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+
+    # dir = [(0,1),(1,0),(0,-1),(-1,0)]
+
+    # layers = []
+
+    # for k in range(min(n//2, m//2)):
+    #     x,y = k,k
+    #     layer = []
+    #     for i in range(4):
+    #         a_x, a_y = dir[i]
+    #         if i%2 == 0: bounder = m-1
+    #         else : bounder = n-1
+
+    #         for j in range(k,bounder-k):
+    #             layer.append(matrix[x][y])
+    #             x, y = x+a_x, y+a_y
+    #     layers.append(layer)
+
+    # answer = [[0]*m for _ in range(n)]
+
+    # for k in range(min(n//2, m//2)):
+    #     count = 0
+    #     x,y = k,k
+    #     for i in range(4):
+    #         a_x, a_y = dir[i]
+    #         if i%2 == 0: bounder = m-1
+    #         else : bounder = n-1
+
+    #         for j in range(k,bounder-k):
+    #             answer[x][y] = layers[k][(count+r)%len(layers[k])]
+    #             count += 1
+    #             x, y = x+a_x, y+a_y
+
+    # for j in answer:
+    #     for k in j:
+    #         print(k, end= " ")
+    #     print()
+    # print()
+# BOJ16926()
