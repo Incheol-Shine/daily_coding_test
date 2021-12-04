@@ -840,3 +840,20 @@
     #     print()
     # print()
 # BOJ16926()
+
+# def BOJ4673(): # 셀프 넘버 (https://www.acmicpc.net/problem/4673)
+    # def d(n):
+    #     answer = n
+    #     for i in map(int, list(str(n))):
+    #         answer += i
+    #         if answer > 10000: return -1
+    #     return answer
+
+    # a = set([i for i in range(1,10001)])
+    # b = set([])
+    # for i in range(1,10001):
+    #     b.add(d(i))
+
+    # for i in sorted(list(a-b)):
+    #     print(i)
+# BOJ4673()
