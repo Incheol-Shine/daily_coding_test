@@ -857,3 +857,59 @@
     # for i in sorted(list(a-b)):
     #     print(i)
 # BOJ4673()
+
+# def palindrome_date(): # 대칭절 (자작 문제)
+    ## 앞 뒤 방향으로 볼 때 같은 순서의 숫자로 구성된 날짜를 대칭절이라 한다. ex) 2021.12.02 는 20211202 로 대칭절이다.
+    ## 문제 : 오늘은 2021.12.05 이다. 오늘로부터 4000.12.31 까지 모든 대칭절을 출력하는 코드를 작성해라
+
+    # def is_palindrome(word): # 대칭 여부 파악
+    #     for i in range(len(word)//2):
+    #         if word[i] != word[len(word)-1-i]:
+    #             return False
+    #     return True
+    
+    # def is_leapyear(year): # 윤년 여부 파악
+    #     if year%4 == 0:
+    #         if year%100 == 0:
+    #             if year%400 == 0:
+    #                 return True
+    #             else:
+    #                 return False
+    #         else:
+    #             return True
+    #     else:
+    #         return False
+
+    # year, mm, dd = 2021, 12, 5
+    # month_with_31 = [1,3,5,7,8,10,12]
+    # month_with_30 = [4,6,9,11]
+    # leap = is_leapyear(year)
+    # boundary = 31
+
+    # while year < 4001:
+    #     word = str(year) + (str(mm) if len(str(mm))==2 else '0'+str(mm)) + (str(dd) if len(str(dd))==2 else '0'+str(dd))
+    #     if is_palindrome(word):
+    #         print(word[:4]+'.'+word[4:6]+'.'+word[6:])
+        
+    #     if mm == 2:
+    #         if leap:
+    #             boundary == 29
+    #         else:
+    #             boundary == 28
+
+    #     elif mm in month_with_30:
+    #         boundary == 30
+
+    #     elif mm in month_with_31:
+    #         boundary == 31
+
+    #     dd += 1
+    #     if dd > boundary:
+    #         dd = 1
+    #         mm += 1
+    #     if mm > 12:
+    #         mm = 1
+    #         year +=1
+    #         leap = is_leapyear(year)
+# palindrome_date()
+
