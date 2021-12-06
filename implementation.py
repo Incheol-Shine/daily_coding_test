@@ -913,3 +913,26 @@
     #         leap = is_leapyear(year)
 # palindrome_date()
 
+# def BOJ15954(): # 인형들 (https://www.acmicpc.net/problem/15954)
+    # k 개 이상 ~~~!! 조건을 잘 읽을 것
+    # import sys
+    
+    # n, k = map(int, input().split())
+    # dolls = list(map(int,sys.stdin.readline().split()))
+    # answer = 9999999999
+
+    # for x in range(n-k+1):
+    #     for y in range(k-1, n-x-1):
+    #         mean = 0
+    #         variance = 0
+    #         for z in range(y):
+    #             mean += dolls[x+z]
+    #         mean /= k
+    #         for z in range(y):
+    #             variance += (dolls[x+z]-mean)**2
+    #         variance /= k
+    #         answer = min(answer, variance**(1/2))
+
+    # print(answer)
+# BOJ15954()
+
