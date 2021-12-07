@@ -40,3 +40,21 @@
 
     # print(ans)
 # BOJ1976()
+
+
+### 최소 공통 부모 찾기
+# def BOJ13116(): # 30번 (https://www.acmicpc.net/problem/13116)
+    # import sys
+
+    # tree = [i for i in range(1024)]
+
+    # t = int(input())
+    # for _ in range(t):
+    #     a,b = map(int, sys.stdin.readline().split())
+    #     while a != b:
+    #         if a > b:
+    #             a //= 2
+    #         else:
+    #             b //= 2
+    #     print(a*10)
+# BOJ13116()
