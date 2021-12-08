@@ -178,6 +178,35 @@
     # print(dp[-1][-1])
 # BOJ12865_2()
 
+# def BOJ9252(): # LCS 2 (https://www.acmicpc.net/problem/9252)
+    # a = input()
+    # b = input()
+    # dp = [[0 for col in range(len(b)+1)]for row in range(len(a)+1)]
+
+    # for i in range(len(a)):
+    #     for j in range(len(b)):
+    #         if a[i] == b[j]:
+    #             dp[i+1][j+1] = dp[i][j] + 1
+    #         else:
+    #             dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j])   ## 점화식으로 dp 채우기
+
+    # answer_1 = dp[-1][-1]
+
+    # answer_2 = '' # 공통문자를 역순으로 저장하는 문자열
+    # r,c = len(a), len(b) # 공통문자를 탐색하기위한 좌표 r : 행,  c : 열 
+    # while dp[r][c] != 0:
+    #     if dp[r-1][c] == dp[r][c]:
+    #         r -= 1
+    #     elif dp[r][c-1] == dp[r][c]:
+    #         c -= 1
+    #     else:
+    #         answer_2 += a[r-1]  # 또는 b[c-1] 
+    #         r,c = r-1, c-1
+
+    # print(answer_1)
+    # print(answer_2[::-1])
+# BOJ9252
+
 #### 재귀함수 문제
 # def BOJ17478(): # 재귀함수가 뭔가요? (https://www.acmicpc.net/problem/17478)
     # n = int(input())
