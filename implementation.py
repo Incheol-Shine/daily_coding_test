@@ -779,7 +779,6 @@
     #     return answer
         
 
-
     # n,m = map(int,sys.stdin.readline().split())
     # paper = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
     # total = []
@@ -790,11 +789,54 @@
     #         for x in range(n):
     #             for y in range(m):
     #                 value = tetro_sum(x,y,rotate)
-    #                 if value != -1:
-    #                     total.append(value)
+    #                 total.append(value)
     # answer = max(total)
     # print(answer)
 # BOJ14500()
+
+# def BOJ14500_2(): # 테트로미노 2nd solution
+    # import sys
+    # global max_val
+
+    # dir = [(-1,0),(0,1),(1,0),(0,-1)]
+    # tetromino = [[[1],[2],[3]],     # ㅁ 한가지 모양
+    #             [[1],[1],[1]],    # ㅡ,ㅣ 두가지 모양
+    #             [[2],[1],[2]],     # ㄱㄴ 대중 이런 모양 두가지 모양
+    #             [[2],[3],[2]],     # 이것도 두가지 모양
+    #             [[2],[2],[1]],     # ㄱ 세운 모양 4방향 다 다름
+    #             [[2],[2],[3]],     # ㄴ 대칭 4방향 다 다름
+    #             [[1],[1,2]]]       # 4방향 다 다름
+
+
+    # def tetro_sum(x,y,shape):
+
+    #     answer = paper[x][y]
+    #     for arr in shape:
+    #         for num in arr:
+    #             i,j = dir[num]
+    #             n_x, n_y = x+i, y+j
+    #             if not(0<=n_x<n and 0<=n_y<m): return -1
+    #             answer += paper[n_x][n_y]
+    #         x, y = n_x, n_y
+
+    #     return answer
+
+    # n,m = map(int,sys.stdin.readline().split())
+    # paper = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+    # max_val = 0
+
+    # for idx, shape in enumerate(tetromino):
+    #     for i in range(4):
+    #         if idx == 0 and i>=1 : break
+    #         elif idx < 4 and i>=2 : break
+    #         rotate = list(map(lambda x: list(map(lambda y: (y+i)%4, x)),shape))
+    #         for x in range(n):
+    #             for y in range(m):
+    #                 value = tetro_sum(x,y,rotate)
+    #                 max_val = max(value, max_val)
+    # print(max_val)
+# BOJ14500_2()
+
 
 # def BOJ16926(): # 배열 돌리기 (https://www.acmicpc.net/problem/16926)
     # import sys
@@ -935,4 +977,6 @@
     #         answer = min(answer, variance**(1/2))
     # print(answer)
 # BOJ15954()
+
+
 
