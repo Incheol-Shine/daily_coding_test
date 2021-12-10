@@ -978,5 +978,70 @@
     # print(answer)
 # BOJ15954()
 
+# def BOJ18808(): # 스티커 붙이기 (https://www.acmicpc.net/problem/18808)
+    # import sys
+    # from copy import deepcopy
 
+    # global answer
+
+    # n,m,k = map(int, sys.stdin.readline().split())
+    # class Sticker:
+    #     def __init__(self,x,y,shape):
+    #         self.size = [x,y]
+    #         self.shape = shape
+    
+    # stickers = []
+    # for i in range(k):
+    #     x,y = map(int,sys.stdin.readline().split())
+    #     shape = [list(map(int,sys.stdin.readline().split())) for _ in range(x)]
+    #     stickers.append(Sticker(x,y,shape))
+    
+
+    # # 어떻게 회전??
+    # def rotate(shape): # 90도 회전
+    #     n,m = len(shape[0]), len(shape)
+
+    #     rotated_shape = [[0]*m for _ in range(n)]
+    #     for i in range(n):
+    #         for j in range(m):
+    #             rotated_shape[i][j] = shape[m-1-j][i]
+
+    #     return rotated_shape
+
+    # # 붙이기
+    # def sticky(x,y,shape):
+    #     copy = deepcopy(board)
+    #     for i in range(len(shape)):
+    #         for j in range(len(shape[0])):
+    #             if not(0<=x+i<n and 0<=y+j<m): return None
+    #             if copy[x+i][y+j]+shape[i][j] >1: return None
+    #             copy[x+i][y+j] += shape[i][j]
+    #     return copy
+
+
+    # board = [[0]*m for _ in range(n)]
+    
+    # flag = 0
+    # for sticker in stickers:
+    #     for x in range(4):
+    #         for i in range(n-len(sticker.shape)+1):
+    #             for j in range(m-len(sticker.shape[0])+2):
+    #                 copy = sticky(i,j,sticker.shape)
+    #                 if copy:
+    #                     board = copy
+    #                     flag = 1
+    #                     break
+    #                 else: flag = 0
+    #             if flag: break
+    #         if flag: break
+    #         sticker.shape = rotate(sticker.shape)
+
+    # answer = 0
+    # for i in board:
+    #     for j in i:
+    #         print(j, end =" ")
+    #         answer += j
+    #     print()
+    # print(answer)
+# BOJ18808()
 
