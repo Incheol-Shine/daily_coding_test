@@ -1045,3 +1045,72 @@
     # print(answer)
 # BOJ18808()
 
+# def BOJ18808_2(): # 스티커 붙이기 2nd solution
+    # import sys
+
+    # global board
+    # global answer
+
+    # n,m,k = map(int, sys.stdin.readline().split())
+    # class Sticker:
+    #     def __init__(self,x,y,shape):
+    #         self.size = [x,y]   # -> 회전시킬 때 값 바뀜
+    #         self.shape = []     # -> 회전시킬 때 값 바뀜
+    #         for i in range(x):
+    #             for j in range(y):
+    #                 if shape[i][j]:
+    #                     self.shape.append([i,j])
+
+    
+    # stickers = []
+    # for i in range(k):
+    #     x,y = map(int,sys.stdin.readline().split())
+    #     shape = [list(map(int,sys.stdin.readline().split())) for _ in range(x)]
+    #     stickers.append(Sticker(x,y,shape))
+
+    # # 어떻게 회전??
+    # def rotate(sticker): # 90도 회전
+    #     x,y = sticker.size
+    #     sticker.size = [y,x]   # size 정보 수정
+
+    #     for idx, [i,j] in enumerate(sticker.shape):
+    #         sticker.shape[idx] = [j, x-1-i]
+
+    # # 붙이기
+    # def sticky(x,y,sticker):
+    #     global board
+
+    #     for i,j in sticker.shape:
+    #         if not(0<=x+i<n and 0<=y+j<m): break   # 스티커가 범위를 벗어난 경우  -> 0
+    #         if board[x+i][y+j]: break              # 이전 스티커와 겹쳐지는 경우  -> 0
+    #     else:
+    #         for i,j in sticker.shape:              # 겹쳐지지 않는 경우  -> 1
+    #             board[x+i][y+j] = 1           
+    #         return 1
+    #     return 0
+
+
+    # board = [[0]*m for _ in range(n)]
+    
+    
+    # for sticker in stickers:
+    #     for _ in range(4):
+    #         flag = 0
+    #         for i in range(n):
+    #             for j in range(m):
+    #                 flag = sticky(i,j,sticker)
+    #                 if flag: break
+    #             if flag: break
+    #         if flag: break
+    #         rotate(sticker)
+
+    # answer = 0
+    # for i in board:
+    #     for j in i:
+    #         # print(j, end =" ")
+    #         answer += j
+    #     # print()
+    # print(answer)
+# BOJ18808_2()
+
+
