@@ -142,3 +142,58 @@
     # bfs_2(q)
     # print(*answer)
 # BOJ16920()
+
+# def BOJ2234(): # 성곽 (https://www.acmicpc.net/problem/2234)
+    # import sys
+    # from collections import deque
+
+    # n,m = map(int, sys.stdin.readline().split())
+    # wall = [list(map(int, sys.stdin.readline().split())) for _ in range(m)]
+    # visit  = [[-1]*n for _ in range(m)]
+
+    # def BFS(a,b):
+    #     dir  = [(0,-1),(-1,0),(0,1),(1,0)] # 서 북 동 남
+    #     count = 0
+
+    #     q = deque()
+    #     q.append((a,b))
+    #     count += 1
+    #     visit[a][b] = room_num # 방 번호
+    #     while q:
+    #         x,y = q.popleft()
+    #         for idx in range(4):
+    #             if wall[x][y] & 1<<idx: continue # 벽이 있는 경우
+    #             i,j = dir[idx]
+    #             if not(0<=x+i<m and 0<=y+j<n): continue # 범위를 벗어난 경우
+    #             if visit[x+i][y+j] != -1: continue
+
+    #             q.append((x+i,y+j))
+    #             visit[x+i][y+j] = room_num
+    #             count += 1
+        
+    #     return count
+
+    # room_num = 0    # 1. 방 개수  
+    # area = []       # 2. 가장 넓은 방 넓이 = max(area)
+    # answer3 = []    # 3. 벽 하나 제거 후 가장 넓은 방 넓이 = max(answer3)
+
+    # for i in range(m):
+    #     prev_room = visit[i][0] if i != 0 else 0
+    #     for j in range(n):
+    #         if visit[i][j] == -1:
+    #             area.append(BFS(i,j))
+    #             room_num += 1
+    #             answer3.append(prev_room+area[-1])
+    #         prev_room = area[visit[i][j]]
+    
+    # for j in range(n):
+    #     prev_num = visit[0][j]
+    #     for i in range(m):
+    #         if visit[i][j] != prev_num:
+    #             answer3.append(area[prev_num]+area[visit[i][j]])
+    #         prev_num = visit[i][j]
+    
+    # print(room_num)
+    # print(max(area))
+    # print(max(answer3))
+# BOJ2234()
