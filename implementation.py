@@ -1077,7 +1077,7 @@
     #         sticker.shape[idx] = [j, x-1-i]
 
     # # 붙이기
-    # def sticky(x,y,sticker):
+    # def attach(x,y,sticker):
     #     global board
 
     #     for i,j in sticker.shape:
@@ -1098,7 +1098,7 @@
     #         flag = 0
     #         for i in range(n):
     #             for j in range(m):
-    #                 flag = sticky(i,j,sticker)
+    #                 flag = attach(i,j,sticker)
     #                 if flag: break
     #             if flag: break
     #         if flag: break
@@ -1113,4 +1113,50 @@
     # print(answer)
 # BOJ18808_2()
 
+# def BOJ18808_3(): # 스티커 붙이기 3rd solution
+    # import sys
+    # global answer
 
+    # def is_possible(x,y,sticker,notebook): # x,y 기준으로 스티커를 붙일 수 있는 지 판단
+    #     for i,j in sticker:
+    #         if notebook[x+i][y+j]: break # 이미 스티커가 붙은 부분인 경우
+    #     else:
+    #         return True
+    #     return False
+
+
+    # def attach(n, m, R, C, sticker, notebook):
+    #     for x in range(n-R+1):
+    #         for y in range(m-C+1):
+    #             if is_possible(x,y,sticker,notebook):
+    #                 for i,j in sticker:
+    #                     notebook[x+i][y+j] = 1
+    #                 return True
+    #     return False   
+
+
+    # def rotation(R,C,sticker):
+    #     r,c = C,R
+    #     for idx, [i,j] in enumerate(sticker):
+    #         sticker[idx] = [j, R-1-i]
+    #     return r,c,sticker
+
+
+    # n,m,k = map(int, sys.stdin.readline().split())
+    # notebook = [[0]*m for _ in range(n)]
+    # for _ in range(k):
+    #     R,C = map(int,sys.stdin.readline().split())
+    #     shape = [list(map(int,sys.stdin.readline().split())) for _ in range(R)]
+    #     sticker = []
+    #     for i in range(R):
+    #         for j in range(C):
+    #             if shape[i][j]: sticker.append([i,j])
+
+    #     for i in range(4):
+    #         if attach(n,m,R,C,sticker,notebook):   # n,m,notebook 은 직접 수정하지 않지만 인자로 넘겨주는 이유 - 파란 밑줄이 안생기기 때문에?
+    #             break
+    #         elif i < 3:
+    #             R,C,sticker = rotation(R,C,sticker)
+
+    # print(sum(map(sum, notebook)))
+# BOJ18808_3()
