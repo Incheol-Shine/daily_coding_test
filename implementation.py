@@ -956,27 +956,87 @@
 # palindrome_date()
 
 # def BOJ15954(): # 인형들 (https://www.acmicpc.net/problem/15954)
-    # k 개 이상 ~~~!! 조건을 잘 읽을 것
+    # # k 개 이상 ~~~!! 조건을 잘 읽을 것
     # import sys
+    # from decimal import Decimal
     
     # n, k = map(int, input().split())
     # dolls = list(map(int,sys.stdin.readline().split()))
     # answer = 9999999999
 
     # for x in range(n-k+1):
-    #     for y in range(k, n-x):
+    #     for y in range(n-x,k-1,-1):
     #         mean = 0
     #         variance = 0
     #         for z in range(y):
     #             mean += dolls[x+z]
     #         mean /= k
     #         for z in range(y):
-    #             variance += (dolls[x+z]-mean)**2
+    #             variance += (Decimal(str(dolls[x+z]))-Decimal(str(mean)))**2
     #         variance /= k
-    #         print(mean, variance**(1/2))
-    #         answer = min(answer, variance**(1/2))
+    #         # print(mean, variance**(1/2))
+    #         answer = min(answer, Decimal(str(variance))**Decimal(str((1/2))))
     # print(answer)
 # BOJ15954()
+
+def BOJ15954_2(): # 인형들 2nd solution
+    import sys
+    from decimal import Decimal
+
+
+import sys
+import math
+from decimal import *
+ 
+fastinput = lambda: sys.stdin.readline().rstrip()
+ 
+n, K = map(int, fastinput().split())
+ 
+preference = list(map(int, fastinput().split()))
+ 
+ 
+def distribute(m, list):
+    result = 0
+ 
+    for i in list:
+        result += (i-m)**2
+    return result/len(list)
+ 
+ 
+resultCandidate = list()
+ 
+for i in range(n-K+1):
+    for j in range(n-K-i+2):
+        tmp = preference[i:i + K + j]
+        m = sum(tmp) / len(tmp)
+        dis = distribute(m, tmp)
+        resultCandidate.append(dis)
+ 
+result = min(resultCandidate)
+ 
+print(math.sqrt(result))
+
+    
+    n, k = map(int, input().split())
+    dolls = list(map(int,sys.stdin.readline().split()))
+    answer = 9999999999
+    
+    def variance(mean,arr):
+        var = 0
+        for z in arr:
+            var += 
+        return var    
+
+
+    for x in range(n-k+1):
+        for y in range():
+            mean = 
+            
+            variance /= k
+            # print(mean, variance**(1/2))
+            answer = min(answer, Decimal(str(variance))**Decimal(str((1/2))))
+    print(answer)
+BOJ15954_2()
 
 # def BOJ18808(): # 스티커 붙이기 (https://www.acmicpc.net/problem/18808)
     # import sys
