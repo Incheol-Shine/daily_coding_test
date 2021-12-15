@@ -178,6 +178,22 @@
     # print(dp[-1][-1])
 # BOJ12865_2()
 
+# def BOJ12865_3(): # 평범한 배낭 - 더 단순한 DP
+    # import sys
+    # input = sys.stdin.readline
+
+    # n,k = map(int, input().split())
+    # ary = [list(map(int, input().split())) for _ in range(n)]
+
+    # dp = [0]*(k+1)
+    # ary.sort()
+    # for weight, val in ary:
+    #     for j in range(k, weight-1,-1):
+    #         dp[j] = max(dp[j], dp[j-weight] + val)
+
+    # print(dp[k])
+# BOJ12865_3()
+
 # def BOJ9252(): # LCS 2 (https://www.acmicpc.net/problem/9252)
     # a = input()
     # b = input()
