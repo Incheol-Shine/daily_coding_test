@@ -223,6 +223,33 @@
     # print(answer_2[::-1])
 # BOJ9252
 
+# def BOJ10942(): # 펠린드롬? (https://www.acmicpc.net/problem/10942)
+    # import sys
+
+    # n = int(input())
+    # nums = list(map(int, sys.stdin.readline().split()))
+
+    # dp = [[False]*n for _ in range(n)]
+
+    # # fill dp
+    # for i in range(n):
+    #         dp[i][i] = True     # 길이가 1인 경우 palindrome 이 맞다(True)
+
+    # for i in range(2, n+1): # 길이가 2 ~ n 인 경우에 대해 (n+1 포함 x)
+    #     for j in range(n-i+1):
+    #         if nums[j] == nums[j+i-1]:
+    #             if i == 2:      # 길이가 2인경우, 두 숫자가 같으면 palindrome
+    #                 dp[j][j+i-1] = True
+    #             elif dp[j+1][j+i-2] == True:  # 그 중간이 palindrome 인지 확인
+    #                 dp[j][j+i-1] = True
+
+    # m = int(input())
+    # for _ in range(m):
+    #     s, e = map(int, sys.stdin.readline().split())
+    #     s, e = s-1, e-1
+    #     print(int(dp[s][e]))
+# BOJ10942()
+
 #### 재귀함수 문제
 # def BOJ17478(): # 재귀함수가 뭔가요? (https://www.acmicpc.net/problem/17478)
     # n = int(input())
