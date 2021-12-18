@@ -1186,3 +1186,6 @@
     # print(sum(map(sum, notebook)))
 # BOJ18808_3()
 
+def BOJ10799():
+    return
+BOJ10799()
