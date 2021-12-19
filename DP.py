@@ -250,6 +250,17 @@
     #     print(int(dp[s][e]))
 # BOJ10942()
 
+# def BOJ11057(): # 오르막 수 (https://www.acmicpc.net/problem/11057)
+    # n = int(input())
+    # dp = [[1]*10]
+    # for i in range(1,n):
+    #     dp.append([0]*10)
+    #     for j in range(10):
+    #         dp[i][j] = dp[i][j-1] + dp[i-1][j]
+
+    # print(sum(dp[n-1])%10007)
+# BOJ11057()
+
 #### 재귀함수 문제
 # def BOJ17478(): # 재귀함수가 뭔가요? (https://www.acmicpc.net/problem/17478)
     # n = int(input())

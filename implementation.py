@@ -1186,6 +1186,35 @@
     # print(sum(map(sum, notebook)))
 # BOJ18808_3()
 
-def BOJ10799():
-    return
-BOJ10799()
+# def BOJ10799(): # 쇠막대기 (https://www.acmicpc.net/problem/10799)
+    # import sys
+    # global count
+
+    # def f(idx):
+    #     global count
+    #     # laser 는 이 함수(괄호) 안에서만 계산된 총 레이저 개수. 
+    #     laser = 0
+    #     while idx < len(arrange):
+    #         # '()' 인 경우는 레이저. 레이저의 개수를 늘린다.
+    #         if arrange[idx] == '(':
+    #             if arrange[idx+1] == ')':
+    #                 laser += 1
+    #             # '()' 가 아닌 경우 괄호가 새로 열렸으므로 함수를 새로 호출한다.
+    #             else:
+    #                 idx, in_laser = f(idx+1)
+    #                 laser += in_laser
+    #         else:
+    #             if arrange[idx-1] == '(': 
+    #                 idx += 1
+    #                 continue
+    #             else:
+    #                 count += laser+1
+    #                 return idx, laser
+    #         idx += 1
+
+    # arrange = sys.stdin.readline().strip()
+
+    # count = 0
+    # f(0)
+    # print(count)
+# BOJ10799()
