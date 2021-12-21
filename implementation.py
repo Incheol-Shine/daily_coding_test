@@ -1218,3 +1218,27 @@
     # f(0)
     # print(count)
 # BOJ10799()
+
+# def BOJ10799_2(): # 쇠막대기 2nd solution
+    # import sys
+    
+    # def f(arrange):
+    #     arrange = arrange.replace('()','0')
+
+    #     pipe = 0  # 현재 겹쳐진 쇠막대기의 갯수
+    #     piece = 0   # 쇠막대기 족각 총 개수
+
+    #     for i in arrange:
+    #         if i == "(":
+    #             pipe += 1
+    #         elif i == "0":
+    #             piece += pipe
+    #         else:
+    #             pipe -= 1
+    #             piece += 1    # 쇠막대기의 끝에 다다른 경우, 조각에 +1 을 해주고 stack에서 뺀다.
+    #     return piece
+
+    # arrange = sys.stdin.readline().strip()
+
+    # print(f(arrange))
+# BOJ10799_2()

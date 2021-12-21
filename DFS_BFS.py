@@ -197,3 +197,51 @@
     # print(max(area))
     # print(max(answer3))
 # BOJ2234()
+
+# def BOJ7576(): # 토마토 (https://www.acmicpc.net/problem/7576)
+    # import sys
+    # from collections import deque
+    # global box
+
+    # def bfs(q):
+    #     global box
+    #     dir = [(0,1),(1,0),(0,-1),(-1,0)]
+    #     count = -1
+
+    #     while q:
+    #         count += 1
+    #         for _ in range(len(q)):
+    #             x,y = q.popleft()
+    #             for i, j in dir:
+    #                 n_x, n_y = x+i, y+j
+    #                 if not(0<=n_x<n and 0<=n_y<m): continue
+    #                 if box[n_x][n_y] !=0: continue
+                    
+    #                 box[n_x][n_y] = 1
+    #                 q.append((n_x,n_y))
+    #     return count if count != 0 else -1
+
+    # m,n = map(int, input().split()) # n행 m열
+    # box = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+
+    # q=deque()
+    # normal_tomato = 0
+    # for i in range(n):
+    #     for j in range(m):
+    #         if box[i][j] == 1:
+    #             q.append((i,j))
+    #         elif box[i][j] == 0:
+    #             normal_tomato += 1
+
+    # if normal_tomato == 0: answer = 0
+    # else: answer = bfs(q)
+
+    # for i in range(n):
+    #     for j in range(m):
+    #         if box[i][j] == 0:
+    #             answer = -1
+    #             break
+    #     if answer == -1: break
+
+    # print(answer)
+# BOJ7576()
