@@ -1,4 +1,4 @@
-### union_find 
+### tree(union_find, trie 등) 
 
 # def BOJ1976(): # 여행가자 (https://www.acmicpc.net/submit/1976/28363407)
     # import sys
@@ -58,3 +58,32 @@
     #             b //= 2
     #     print(a*10)
 # BOJ13116()
+
+### trie?
+# def BOJ5052(): # 전화번호 목록 ()
+    # import sys
+    # from collections import defaultdict
+
+    # t = int(input())
+    # ans = []
+
+    # for _ in range(t):
+
+    #     n = int(sys.stdin.readline())
+    #     call = [sys.stdin.readline().strip() for _ in range(n)]
+
+    #     dic = defaultdict(set)                  # trie 자료구조
+        
+    #     for i in call:
+    #         for j in range(len(i)-1):
+    #             dic[i[:j+1]].add(i[:j+2])   # ex) dic['9'] = {'91', '97'}, dic['91'] = {'911'} 
+        
+    #     ans.append('YES')
+
+    #     for i in call:
+    #         if dic[i] != set(): ans[-1] = 'NO' # 하나라도 leaf 노드가 아닌게 있으면 NO
+
+    # for i in ans:
+    #     print(i)
+    # return
+# BOJ5052()
