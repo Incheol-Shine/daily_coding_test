@@ -261,6 +261,28 @@
     # print(sum(dp[n-1])%10007)
 # BOJ11057()
 
+# def BOJ5557(): # 1학년 (https://www.acmicpc.net/problem/5557)
+    # import sys
+
+    # n = int(input())
+    # nums = list(map(int,sys.stdin.readline().split()))
+
+    # start = nums[0]
+    # target = nums[-1]
+
+    # dp=[[0]*21 for _ in range(n)]
+
+    # dp[0][start] = 1    # dp 원소의 의미 : 수식의 답(열)이 해당 행과 같은 경우의 수. 즉 마지막 행, 열이 입력의 마지막 수(등식의 우변) 인 원소를 반환하면 된다. 
+    # for i in range(1,n-1):
+    #     for j in range(21):         # 20 포함
+    #         if dp[i-1][j]:
+    #             if j + nums[i] <= 20 : dp[i][j + nums[i]] += dp[i-1][j]
+    #             if j - nums[i] >= 0 : dp[i][j - nums[i]] += dp[i-1][j]
+
+    # print(dp[n-2][target])
+    # return
+# BOJ5557()
+
 #### 재귀함수 문제
 # def BOJ17478(): # 재귀함수가 뭔가요? (https://www.acmicpc.net/problem/17478)
     # n = int(input())
