@@ -1242,3 +1242,42 @@
 
     # print(f(arrange))
 # BOJ10799_2()
+
+# def BOJ1952(): # 달팽이2
+    # m,n = map(int,input().split())
+
+    # dir = [(0,1),(1,0),(0,-1),(-1,0)]   # 우, 하, 좌, 상
+    # visit = [[0]*n for _ in range(m)]
+    # i = 0
+    # answer = 0
+    # x,y = 0,0
+    # count = 1
+
+    # visit[x][y] = count
+    # while count<n*m:
+    #     n_x,n_y = x+dir[i][0], y+dir[i][1]
+    #     if not(0<=n_x<m and 0<=n_y<n) or visit[n_x][n_y] != 0: 
+    #         i=(i+1)%4
+    #         answer += 1
+    #         continue
+    #     count += 1
+    #     x,y = n_x,n_y
+    #     visit[x][y] = count
+        
+    # print(answer)
+# BOJ1952()
+
+def BOJ1952_2(): # 달팽이2 2nd solution
+    m,n = map(int, input().split())
+
+    arr = []
+    while True:
+        m-=1
+        if m==0 : break
+        arr.append(m)
+        n-=1
+        if n==0 : break
+        arr.append(n)
+    print(arr)
+    print(len(arr))
+BOJ1952_2()
