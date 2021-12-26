@@ -1267,17 +1267,56 @@
     # print(answer)
 # BOJ1952()
 
-def BOJ1952_2(): # 달팽이2 2nd solution
-    m,n = map(int, input().split())
+# def BOJ1952_2(): # 달팽이2 2nd solution
+    # m,n = map(int, input().split())
 
-    arr = []
-    while True:
-        m-=1
-        if m==0 : break
-        arr.append(m)
-        n-=1
-        if n==0 : break
-        arr.append(n)
-    print(arr)
-    print(len(arr))
-BOJ1952_2()
+    # arr = []
+    # while True:
+    #     m-=1
+    #     if m==0 : break
+    #     arr.append(m)
+    #     n-=1
+    #     if n==0 : break
+    #     arr.append(n)
+    # print(len(arr))
+# BOJ1952_2()
+
+# def BOJ11723(): # 집합 (https://www.acmicpc.net/problem/11723)
+    # import sys
+
+    # s = set()
+
+    # def operation(op, x):
+    #     global s
+
+    #     if op == 'add':
+    #         if not(x in s): s.add(x)
+        
+    #     elif op == 'remove':
+    #         if x in s: s.remove(x)
+                
+    #     elif op == 'check':
+    #         answer = 1 if x in s else 0
+    #         print(answer)
+
+    #     elif op == 'toggle':
+    #         if x in s: s.remove(x)
+    #         else: s.add(x)
+
+    #     elif op == 'all':
+    #         s = {i for i in range(1,21)}
+
+    #     elif op == 'empty':
+    #         s = set()
+
+
+    # n = int(input())
+    # for _ in range(n):
+    #     op_and_num = list(sys.stdin.readline().split())
+    #     if len(op_and_num) == 2:
+    #         op, num = op_and_num[0], int(op_and_num[1])
+    #     else:
+    #         op, num = op_and_num[0], 1
+
+    #     operation(op, num)
+# BOJ11723()
