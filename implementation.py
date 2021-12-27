@@ -1320,3 +1320,27 @@
 
     #     operation(op, num)
 # BOJ11723()
+
+# def BOJ21735(): # 눈덩이 굴리기()
+    # import sys
+
+    # n, m = map(int, input().split())
+    # snowfield = list(map(int, sys.stdin.readline().split()))
+
+    # # 완전탐색으로 풀어야 함 !!!
+    # stack = [[] for _ in range(n+1)]
+    # size, time = 1, 0
+    # stack[0].append([1,0])
+    # answer = 0
+    # for i in range(n+1):
+    #     while stack[i]:
+    #         size, time = stack[i].pop()
+    #         answer = max(answer, size)
+    #         if i+1 <= n and time+1 <= m:
+    #             stack[i+1].append([size+snowfield[i], time+1])
+    #         if i+2 <= n and time+1 <= m:
+    #             stack[i+2].append([size//2+snowfield[i+1], time+1])
+            
+
+    # print(answer)
+# BOJ21735()
