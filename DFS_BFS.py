@@ -328,3 +328,42 @@
     #     #     print()
     # print(ans)
 # BOJ16234()
+
+# def BOJ7562(): # 나이트의 이동 (https://www.acmicpc.net/problem/7562)
+    # import sys
+    # from collections import deque
+
+    # def bfs(start, goal, L):
+    #     if start == goal: return 0
+
+    #     visit = [[-1]*L for _ in range(L)]
+    #     dir = [(-2,1),(-1,2),(1,2),(2,1),(2,-1),(1,-2),(-1,-2),(-2,-1)]  # 시계방향
+    #     count = 0
+
+    #     q = deque()
+    #     q.append(start)
+    #     visit[start[0]][start[1]] = count
+    #     while q:
+    #         count += 1
+    #         for _ in range(len(q)):
+
+    #             x,y = q.popleft()
+    #             for i,j in dir:
+    #                 n_x, n_y = x+i, y+j
+    #                 if not(0<=n_x<L and 0<=n_y<L): continue
+    #                 if visit[n_x][n_y] != -1: continue
+
+    #                 visit[n_x][n_y] = count
+    #                 q.append((n_x, n_y))
+    #                 if (n_x, n_y) == goal: return count
+    #     return 0
+
+    # t = int(input())
+
+    # for _ in range(t):
+    #     L = int(sys.stdin.readline().strip())
+    #     start = tuple(map(int, sys.stdin.readline().split()))
+    #     goal = tuple(map(int, sys.stdin.readline().split()))
+
+    #     print(bfs(start, goal, L))
+# BOJ7562()
