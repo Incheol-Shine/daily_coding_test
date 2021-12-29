@@ -367,3 +367,59 @@
 
     #     print(bfs(start, goal, L))
 # BOJ7562()
+
+# def BOJ7562_2(): # 나이트의 이동 2nd solution
+    # import sys
+    # from collections import deque
+
+    # def short(start,goal):
+    #     x,y = abs(start[0]-goal[0]), abs(start[1]-goal[1])
+    #     count = 0
+    #     while x>5 or y>5:
+    #         if x>y:
+    #             x-=2
+    #             if y>0: y-=1
+    #             else: y+=1
+    #         else:
+    #             y-=2
+    #             if x>0: x-=1
+    #             else: x+=1
+    #         count +=1
+
+    #     return start, goal, count
+
+    # def bfs(start, goal, L):
+    #     if start == goal: return 0
+
+    #     visit = [[-1]*L for _ in range(L)]
+    #     dir = [(-2,1),(-1,2),(1,2),(2,1),(2,-1),(1,-2),(-1,-2),(-2,-1)]  # 시계방향
+    #     count = 0
+
+    #     q = deque()
+    #     q.append(start)
+    #     visit[start[0]][start[1]] = count
+    #     while q:
+    #         count += 1
+    #         for _ in range(len(q)):
+
+    #             x,y = q.popleft()
+    #             for i,j in dir:
+    #                 n_x, n_y = x+i, y+j
+    #                 if not(0<=n_x<L and 0<=n_y<L): continue
+    #                 if visit[n_x][n_y] != -1: continue
+
+    #                 visit[n_x][n_y] = count
+    #                 q.append((n_x, n_y))
+    #                 if (n_x, n_y) == goal: return count
+    #     return 0
+
+    # t = int(input())
+
+    # for _ in range(t):
+    #     L = int(sys.stdin.readline().strip())
+    #     start = tuple(map(int, sys.stdin.readline().split()))
+    #     goal = tuple(map(int, sys.stdin.readline().split()))
+
+    #     n_start, n_goal, i = short(start, goal)
+    #     print(i+bfs(n_start, n_goal, L))
+# BOJ7562_2()
