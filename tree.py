@@ -87,3 +87,41 @@
     #     print(i)
     # return
 # BOJ5052()
+
+from sys import last_traceback
+
+
+def BOJ11286():	# 절댓값 힙(https://www.acmicpc.net/problem/11286)
+	import sys
+
+	def heap_add(heap, index):
+		if (index == 1):
+			return
+		if (heap[index] < heap[index//2]):
+			heap[index], heap[index//2] = heap[index//2], heap[index]
+			return heap_add(index//2)
+		return
+	
+	def heap_pop(heap, index):
+		if (index >= len(heap) - 1): return
+		if (heap[index*2] <= heap[index*2+1]):
+			heap[index], heap[index*2] = heap[index*2], heap[index]
+			return heap_pop(heap, index*2)
+		else:
+			heap[index], heap[index*2+1] = heap[index*2+1], heap[index]
+			return heap_pop(heap, index*2+1)
+	
+	input = sys.stdin.readline
+	n = int(input().strip())
+	heap = [0]
+	last = 1
+	for _ in range(n):
+		x = int(input().strip())
+		if (x != 0):
+			heap.append(x)
+			heap_add(heap, len(heap)-1)
+		else:
+			print(heap[1])
+			heap_pop(heap, 1)
+	return
+BOJ11286()

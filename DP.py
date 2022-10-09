@@ -308,3 +308,25 @@
     # print(output[0])
     # f(n)
 # BOJ17478()
+
+def BOJ14501():	# 퇴사 (https://www.acmicpc.net/problem/14501)
+	import sys
+
+	input = sys.stdin.readline
+	n = int(input().strip())
+	t, p = zip([0, 0], *[list(map(int, input().split())) for _ in range(n)])
+	# print(t)
+	# print(p)
+	dp = [[0] * (n + 1) for _ in range(n + 1)]
+	for i in range(1, n + 1):
+		for j in range(1, n + 1):
+			if (j == t[i] + i - 1): 
+				if (i - 1 + t[i] <= i): dp[i][j] = dp[i - 1][j] + p[i]
+				else: dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+			else: dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+	for i in dp:
+		for j in i:
+			print(j, end = " ")
+		print()
+	print(dp[-1][-1])
+BOJ14501()

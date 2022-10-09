@@ -1344,3 +1344,753 @@
 
     # print(answer)
 # BOJ21735()
+
+# def BOJ13105(): # 별 찍기 23 (https://www.acmicpc.net/problem/13015)
+#     n = int(input())
+#     for i in range(2 * n - 1):
+#         x = i if i <= n - 1 else (2 * n - 2 - i)
+#         if (x == 0):
+#             print("*" * n + " " * (2 * (n - x) - 3) + "*" * n)
+#         elif(x == n - 1):
+#             print(" " * x + "*" + " " * (n - 2) + "*"
+#             + " " * (n - 2) + "*")
+#         else:
+#             print(" " * x + "*" + " " * (n - 2) + "*"
+#             + " " * (2 * (n - x) - 3)
+#             + "*" + " " * (n - 2) + "*")
+#     return
+# BOJ13105()
+
+# def BOJ17087(): # 숨바꼭질 (https://www.acmicpc.net/problem/17087)
+#     import sys
+
+#     def gcd(x, y): # ref : https://brownbears.tistory.com/454
+#         if (x % y == 0): return y
+#         else: return gcd(y, x % y)
+
+#     n, s = map(int, sys.stdin.readline().split())
+#     distance = list(map(lambda x: abs(int(x) - s), sys.stdin.readline().split()))
+#     answer = distance[0]
+#     for i in distance:
+#         answer = gcd(answer, i)
+#     print(answer)
+#     return
+# BOJ17087()
+
+# def BOJ10836(): # 여왕벌 (https://www.acmicpc.net/problem/10836)
+#     import sys
+    
+#     def input_num(m, input_list):
+#         cnt = 0
+#         for idx, i in enumerate(input_list):
+#             while (i > 0):
+#                 if (cnt <= m - 1):
+#                     honeycomb[m - 1 - cnt][0] += idx
+#                     growth[m - 1 - cnt][0] = idx
+#                 else:
+#                     honeycomb[0][cnt - m + 1] += idx
+#                     growth[0][cnt - m + 1] = idx
+#                 i -= 1
+#                 cnt += 1
+
+#     m, n = map(int, sys.stdin.readline().split())
+#     honeycomb = [[1] * m for _ in range(m)]
+#     growth = [[1] * m for _ in range(m)]
+#     for _ in range(n):
+#         input_list = list(map(int, sys.stdin.readline().split()))
+#         input_num(m, input_list)
+#         for i in range(1, m):
+#             for j in range(1, m):
+#                 growth[i][j] = max(growth[i - 1][j], growth[i - 1][j - 1], growth[i][j - 1])
+#                 honeycomb[i][j] += growth[i][j]
+#         print("growth:")
+#         for i in growth:
+#             for j in i:
+#                 print(j, end = " ")
+#             print()
+#         print("honeycomb")
+#         for i in honeycomb:
+#             for j in i:
+#                 print(j, end = " ")
+#             print()
+#     for i in honeycomb:
+#         for j in i:
+#             print(j, end = " ")
+#         print()
+#     return
+# BOJ10836()
+
+# def BOJ13458(): # 시험감독 (https://www.acmicpc.net/problem/13458)
+#     import sys
+
+#     n = int(input())
+#     a = list(map(int, sys.stdin.readline().split()))
+#     b, c = map(int, sys.stdin.readline().split())
+
+#     answer = 0
+#     for i in a:
+#         answer += 1
+#         if ((i - b) >= 0):
+#             if ((i - b) % c):
+#                 answer += (i - b)//c + 1
+#             else:
+#                 answer += (i - b)//c
+#     print(answer)
+# BOJ13458()
+
+# def BOJ10162(): # 전자레인지 (https://www.acmicpc.net/problem/10162)
+#     t = int(input())
+#     answer = [0] * 3
+#     if (t // 300):
+#         answer[0] = t // 300
+#         t %= 300
+#     if (t // 60):
+#         answer[1] = t // 60
+#         t %= 60
+#     if (t // 10):
+#         answer[2] = t // 10
+#         t %= 10
+#     if (t):
+#         print(-1)
+#     else:
+#         print(*answer)
+# BOJ10162()
+
+# def BOJ11060(): # 점프 점프 2nd solution (https://www.acmicpc.net/problem/11060)
+#     import sys
+    
+#     n = int(input())
+#     a = list(map(int, sys.stdin.readline().split()))
+
+#     def f():
+#         cur_idx = 0
+#         jmp_distance = 0
+#         if (n == 1):
+#             return 0
+#         else:
+#             count = 1
+#             while (a[cur_idx] + cur_idx < n - 1):
+#                 if a[cur_idx] == 0: return -1
+#                 idx_list = [x for x in range(a[cur_idx] + 1) if (cur_idx + x < n)]
+#                 jmp_distance = max(idx_list, key = lambda x: a[cur_idx + x] + cur_idx + x)
+#                 if(jmp_distance == 0): return -1
+#                 cur_idx += jmp_distance
+#                 print(f"cur_idx: {cur_idx}, value: {a[cur_idx]}")
+#                 print(idx_list)
+#                 count += 1
+#             return count
+#     print(f())
+# BOJ11060()
+
+# def BOJ16967(): # 배열 복원하기(https://www.acmicpc.net/problem/16967)
+#     import sys
+
+#     h, w, x, y = map(int, sys.stdin.readline().split())
+#     b = [list(map(int, sys.stdin.readline().split())) for _ in range(h + x)]
+#     a = [[-1] * w for _ in range(h)]
+#     count = h * w
+#     while (count):
+#         for i in range(h + x):
+#             for j in range(w + y):
+#                 if (x <= i < h and y <= j < w):
+#                     if (a[i - x][j - y] == -1 and a[i][j] != -1):
+#                         a[i - x][j - y] = b[i][j] - a[i][j]
+#                         count -= 1
+#                     elif (a[i][j] == -1 and a[i - x][j - y] != -1):
+#                         a[i][j] = b[i][j] - a[i - x][j - y]
+#                         count -= 1
+#                     else: continue
+#                 elif (0 <= i < h and 0 <= j < w):
+#                     if (a[i][j] == -1):
+#                         a[i][j] = b[i][j]
+#                         count -= 1
+#                 elif (x <= i < h + x and y <= j < w + y):
+#                     if (a[i - x][j - y] == -1):
+#                         a[i - x][j - y] = b[i][j]
+#                         count -= 1
+#                 else: continue
+#     for i in a:
+#         for j in i:
+#             print(j, end = " ")
+#         print()
+
+# BOJ16967()
+
+# def BOJ18808(): # 스티커 붙이기 (https://www.acmicpc.net/problem/18808)
+    # import sys
+
+    # def check(arr, x, y):
+    #     for i, j in arr:
+    #         if (not(0 <= x + i < n and 0 <= y + j < m)): return 0
+    #         if (board[x + i][y + j] == 1): return 0
+    #     return 1
+    
+    # def paste(arr, x, y):
+    #     count = 0
+    #     for i, j in arr:
+    #         board[x + i][y + j] = 1
+    #         count += 1
+    #     return count
+
+    # def rotate(arr, r, c):
+    #     for coord in arr:
+    #         coord[0], coord[1] = coord[1], r - 1 - coord[0]
+    #     return c, r
+
+    # def check_paste(arr, r, c):
+    #     count = 0
+    #     for i in range(n):
+    #         for j in range(m):
+    #             for _ in range(4):
+    #                 if (check(arr, i, j)):
+    #                     return paste(arr, i, j)
+    #                 else:
+    #                     r, c = rotate(arr, r, c)
+    #     return count
+
+    # input = sys.stdin.readline
+    # n, m, k = map(int, input().split())
+    # size = []
+    # answer = 0
+    # board = [[0] * m for _ in range(n)]
+    # for _ in range(k):
+    #     r, c = map(int, input().split())
+    #     sticker_coord = [list(map(int, input().split())) for _ in range(r)]
+    #     sticker = []
+    #     for i in range(r):
+    #         for j in range(c):
+    #             if (sticker_coord[i][j] == 1): sticker.append([i, j])
+    #     answer += check_paste(sticker, r,c)
+
+    # print(answer)
+
+#     import sys
+
+#     def check(arr, x, y):
+#         for i, j in arr:
+#             if (not(0 <= x + i < n and 0 <= y + j < m)): return 0
+#             if (board[x + i][y + j] == 1): return 0
+#         return 1
+
+#     def paste(arr, x, y):
+#         count = 0
+#         for i, j in arr:
+#             board[x + i][y + j] = 1
+#             count += 1
+#         return count
+
+#     def rotate(arr, r, c):
+#         for coord in arr:
+#             coord[0], coord[1] = coord[1], r - 1 - coord[0]
+#         return c, r
+
+#     def check_paste(arr, r, c):
+#         count = 0
+#         for _ in range(4):
+#             for i in range(n):
+#                 for j in range(m):
+#                     if (check(arr, i, j)):
+#                         return paste(arr, i, j)
+#             r, c = rotate(arr, r, c)
+#         return count
+
+#     input = sys.stdin.readline
+#     n, m, k = map(int, input().split())
+#     size = []
+#     answer = 0
+#     board = [[0] * m for _ in range(n)]
+#     for _ in range(k):
+#         r, c = map(int, input().split())
+#         sticker_coord = [list(map(int, input().split())) for _ in range(r)]
+#         sticker = []
+#         for i in range(r):
+#             for j in range(c):
+#                 if (sticker_coord[i][j] == 1): sticker.append([i, j])
+#         answer += check_paste(sticker, r,c)
+#     print(answer)
+# BOJ18808()
+
+# def BOJ4659(): # 비밀번호 발음하기(https://www.acmicpc.net/problem/4659)
+#     import sys
+ 
+#     def is_acceptable(word):
+#         if (len(set("aeiou") - set(word)) == 5): return False
+#         cnt_same_char = 1
+#         cnt_consonant_vowel = 1
+#         char_memo = ''
+#         con_vow_memo = -1
+#         for i in word:
+#             if (i == char_memo):
+#                 cnt_same_char += 1
+#             else:
+#                 cnt_same_char = 1
+#                 char_memo = i
+#             if ((i in "aeiou") == con_vow_memo):
+#                 cnt_consonant_vowel += 1
+#             else:
+#                 cnt_consonant_vowel = 1
+#                 con_vow_memo = (i in "aeiou")
+#             if (cnt_same_char == 2 and char_memo != 'e' and char_memo != 'o'): return False
+#             if (cnt_consonant_vowel == 3): return False
+#         return True
+
+#     while True:
+#         word = sys.stdin.readline().strip()
+#         if (word == "end"): return
+#         if (is_acceptable(word)):
+#             print(f"<{word}> is acceptable.")
+#         else:
+#             print(f"<{word}> is not acceptable.")
+# BOJ4659()
+
+# def BOJ3896():  # 소수사이수열 (https://www.acmicpc.net/problem/3896)
+#     from math import sqrt
+#     import sys
+    
+#     def is_prime(num):
+#         if (num < 2): return 0
+#         if (num == 2): return 1
+#         for i in range(2, int(sqrt(num)) + 1):
+#             if(num % i == 0): return 0
+#         return 1
+
+#     t = int(sys.stdin.readline().strip())
+#     for _ in range(t):
+#         answer = 0
+#         cnt = 1
+#         num = int(sys.stdin.readline().strip())
+#         if (is_prime(num)): print(answer)
+#         else:
+#             while (is_prime(num - cnt) == 0):
+#                 cnt += 1
+#             answer += cnt
+#             cnt = 1
+#             while (is_prime(num + cnt) == 0):
+#                 cnt += 1
+#             answer += cnt
+#             print(answer)
+
+# BOJ3896()
+
+# def BOJ15565(): # 귀여운 라이언 (https://www.acmicpc.net/problem/15565)
+#     import sys
+#     n, k = map(int, sys.stdin.readline().split())
+#     arr = list(map(int, sys.stdin.readline().split()))
+#     def f():
+#         answer = n
+#         l, r = 0, 0
+#         for i in range(n):
+#             if (arr[i] == 1): 
+#                 l, r = i, i
+#                 break
+#         cnt = 1
+#         while (l < n):
+#             while (cnt < k):
+#                 r += 1
+#                 if (r < n and arr[r] == 1): cnt += 1
+#                 if (r >= n):
+#                     if (answer == n and cnt < k): return (-1)
+#                     break
+#             if (cnt == k): answer = min(answer, r - l + 1)
+#             cnt -= 1
+#             l += 1
+#             while (l < n and arr[l] != 1):
+#                 l += 1
+#         return answer
+#     print(f())
+# BOJ15565()
+
+# def BOJ17952(): # 과제는 끝나지 않아! (https://www.acmicpc.net/problem/17952)
+#     import sys
+#     class Assignment:
+#         def __init__(self, idx, a, t):
+#             self.idx = idx
+#             self.a = a
+#             self.t = t
+
+#     n = int(input())
+#     for i in range(n):
+#         arr = list(map(int, sys.stdin.readline().split()))
+#         if (arr[0]):
+#             a, t = arr[1], arr[2]
+
+
+
+#     return
+# BOJ17952()
+
+# def BOJ3190():	# 뱀 (https://www.acmicpc.net/problem/3190)
+# 	import sys
+# 	from collections import deque
+
+# 	input = sys.stdin.readline
+# 	head= [0, 0]
+# 	snake = deque()
+# 	snake.append((0, 0))
+# 	cw = [(0, -1), (-1, 0), (0, 1), (1, 0)]	# 좌, 상, 우, 하
+
+# 	def move(time, x, direction):
+# 		while (x - time):
+# 			time += 1
+# 			d_x, d_y = cw[direction]
+# 			if (not(0 <= head[0] + d_x < n and 0 <= head[1] + d_y < n)):
+# 				return 1, time	# 벽에 충돌한 경우
+
+# 			if (board[head[0] + d_x][head[1] + d_y] == 's'):
+# 				return 1, time	# 몸과 충돌한 경우
+
+# 			if (board[head[0] + d_x][head[1] + d_y] != 'a'):
+# 				tail_x, tail_y = snake.popleft()
+# 				board[tail_x][tail_y] = '.'	# 꼬리 자르기
+			
+# 			head[0], head[1] = head[0] + d_x, head[1] + d_y	# head 찍기
+# 			board[head[0]][head[1]] = 's'
+# 			snake.append((head[0], head[1]))
+# 		return 0, time
+
+# 	n = int(input().strip())
+# 	board = [['.'] * n for _ in range(n)]
+# 	board[0][0] = 's'	# 뱀의 위치를 표시한다.
+# 	k = int(input().strip())
+# 	for _ in range(k):
+# 		i, j = map(int, input().split())
+# 		board[i - 1][j - 1] = 'a'	# 사과 위치를 표시한다
+# 	direction = 2
+# 	l = int(input().strip())
+# 	time = 0
+# 	for _ in range(l):
+# 		x, c = input().split()
+# 		flag, time = move(time, int(x), direction)
+# 		if (flag): break
+# 		direction = (direction + 3) % 4 if (c == 'L') else (direction + 1) % 4
+# 	if (flag):
+# 		print(time)
+# 	else:
+# 		flag, time = move(time, 10000, direction)
+# 		print(time)
+# BOJ3190()
+
+# def BOJ11053():	# 가장 긴 증가하는 부분 수열 (https://www.acmicpc.net/problem/11053)
+# 	import sys
+
+# 	input = sys.stdin.readline
+# 	size = input().strip()
+# 	a = list(map(int, input().split()))
+	
+# 	return
+# BOJ11053()
+
+# def BOJ17425():	# 약수의 합 (https://www.acmicpc.net/problem/17425)
+# 	import sys
+
+# 	def f(n):
+# 		total = 0
+# 		for i in range(1, int(n**(1/2)) + 1):
+# 			if (n % i == 0):
+# 				total += i
+# 				if (i**2 != n):
+# 					total += n//i
+# 		return total
+	
+# 	input = sys.stdin.readline
+# 	g = [0] * 1000001
+# 	for i in range(1, 1000001):
+# 		g[i] = g[i - 1] + f(i)
+# 	print(g[:20])
+
+# 	t = int(input().strip())
+# 	for _ in range(t):
+# 		n = int(input().strip())
+# 		print(g[n])
+# BOJ17425()
+
+# def BOJ17425():	# 약수의 합 - 2nd solution
+# 	import sys
+
+# 	input = sys.stdin.readline
+# 	MAX = 1000000
+# 	g = [0] * (MAX + 1)
+# 	f = [0] * (MAX + 1)
+# 	for i in range(1, MAX + 1):
+# 		for j in range(1, MAX//i + 1):
+# 			f[i * j] += i
+# 	for i in range(1, MAX + 1):
+# 		g[i] = g[i - 1] + f[i]
+
+# 	t = int(input().strip())
+# 	for _ in range(t):
+# 		n = int(input().strip())
+# 		print(g[n])
+# BOJ17425()
+
+# def BOJ15662():	# 톱니바퀴 (2) (https://www.acmicpc.net/problem/15662)
+# 	import sys
+
+# 	def compare(i):
+# 		for pose in [-1, 1]:
+# 			if (0 <= (i + pose) < t and move_list[i + pose] == 0):
+# 				if (gears[i][idx[i][0]] != gears[i + pose][idx[i + pose][1]]):
+# 					move_list[i + pose] = move_list[i] * -1
+# 		return
+	
+# 	def rotate(move_list):
+			
+# 		return
+	
+# 	input = sys.stdin.readline
+# 	t = int(input().strip())
+# 	gears = [list(map(int, input().split())) for _ in range(t)]
+# 	idx = [[6, 2] for _ in range(t)]
+
+# 	k = int(input().strip())
+# 	for _ in range(k):
+# 		gear, dir = map(int, input().split())
+# 		move_list = [0] * t
+# 		compare(gear - 1)
+# 		rotate(move_list)
+# 		answer = 0
+# 		for i, [l, _] in enumerate(idx):
+# 			answer += gears[i][(l + 2) % 8]
+# 		print(answer)
+# 	return
+# BOJ15662()
+
+# def BOJ10655():	# 마라톤1 (https://www.acmicpc.net/problem/10655)
+# 	import sys
+
+# 	input = sys.stdin.readline
+# 	n = int(input().strip())
+# 	checkpoint = [tuple(map(int, input().split())) for _ in range(n)]
+
+# 	answer = 200000000
+# 	for i in range(1, n - 1):
+# 		distance = 0
+# 		p_x, p_y = checkpoint[0]
+# 		for idx, (x, y) in enumerate(checkpoint):
+# 			if (i == idx): continue
+# 			distance += abs(x - p_x) + abs(y - p_y)
+# 			p_x, p_y = x, y
+# 		answer = min(answer, distance)
+# 	print(answer)
+# BOJ10655()
+
+# def BOJ10655():	# 마라톤1 - 2nd solution (https://www.acmicpc.net/problem/10655)
+# 	import sys
+
+# 	def dist(a, b):
+# 		return abs(point[a][0] - point[b][0]) + abs(point[a][1] - point[b][1])
+	
+# 	input = sys.stdin.readline
+# 	n = int(input().strip())
+# 	point = [tuple(map(int, input().split())) for _ in range(n)]
+
+# 	arr = [dist(i, i+1) + dist(i+1, i+2) - dist(i, i+2) for i in range(n-2)]
+# 	all_point = 0
+# 	for i in range(n-1):
+# 		all_point += dist(i, i+1)
+# 	print(all_point - max(arr))
+# BOJ10655()
+
+# def BOJ15829():	# Hashing (https://www.acmicpc.net/problem/15829)
+# 	import sys
+
+# 	input = sys.stdin.readline
+# 	M = 1234567891
+	
+# 	# 방법 1
+# 	# l = int(input().strip())
+# 	# alpha = list(map(lambda x: ord(x) - ord('a') + 1, input().strip()))
+# 	# print(sum(map(lambda x, y: x * (31 ** (y)), alpha, range(l))) % M)
+	
+# 	# 방법 2
+# 	# l = int(input().strip())
+# 	# print(sum(map(lambda x, y: (ord(x) - ord('a') + 1) * (31 ** (y)), input().strip(), range(l))) % M)
+	
+# 	# 방법 3
+# 	l = int(input().strip())
+# 	print(sum((ord(x) - ord('a') + 1) * (31 ** (y)) for y, x in enumerate(input().strip())) % M)
+
+# BOJ15829()
+
+# 번외 - 간단한 가위바위보 알고리즘
+# def f():
+# 	import random
+	
+# 	player = input()
+# 	rps = ["rock", "paper", "scissor"]
+# 	result = ["draw", "lose", "win"]
+
+# 	p_idx = rps.index(player)
+# 	r_idx = random.randrange(0, 3)
+# 	# print("you :", player)
+# 	print("computer :", rps[(p_idx + r_idx) % 3])
+# 	print(result[r_idx])
+
+# for _ in range(50):
+# 	f()
+
+# def BOJ1935():	# 후위 표기식2 (https://www.acmicpc.net/problem/1935)
+# 	import sys
+# 	input = sys.stdin.readline
+
+# 	def sub_op(stack):
+# 		a = stack.pop()[0]
+# 		b = stack.pop()[0]
+# 		c = stack.pop()[0]
+# 		if (c == '+'):
+# 			return a + b
+# 		if (c == '-'):
+# 			return a - b
+# 		if (c == '*'):
+# 			return a * b
+# 		if (c == '/'):
+# 			return a / b
+	
+# 	def idx(a):
+# 		return ord(a) - ord('A')
+
+# 	n = int(input().strip())
+# 	postfix = list(input().strip())
+# 	nums = list(float(input().strip()) for _ in range(n))
+
+# 	stack = []
+# 	for i in range(len(postfix)):
+# 		x = postfix.pop()
+# 		stack.append((nums[idx(x)], 0) if x not in "+-*/" else (x, 1))
+# 		while (len(stack) >= 3 and stack[-3][1] and not(stack[-2][1]) and not(stack[-1][1])):
+# 			stack.append((sub_op(stack), 0))
+# 	print(f"{stack[-1][0]:.2f}")
+# BOJ1935()
+
+## 후위 표기식2_2nd solution -feat 1sss123ss
+# import sys
+# input = sys.stdin.readline
+
+# def operation(left,right,op):
+#     if op == '-':
+#         return left-right
+#     elif op == '+':
+#         return left+right
+#     elif op == '/':
+#         return left/right
+#     elif op == '*':
+#         return left*right
+
+# N = int(input())
+# notation = list(input().strip())
+# alpha_to_num = {}
+# for i in range(N):
+#     alpha_to_num[chr(ord('A')+i)] = int(input())
+
+# stack = []
+# for s in notation:
+#     # 숫자
+#     if ord('A') <= ord(s) <= ord('Z'):
+#         stack.append(alpha_to_num[s])
+#     else:
+#         right = stack.pop()
+#         left = stack.pop()
+#         stack.append(operation(left,right,s))
+
+# print(f'{stack.pop():.2f}')
+
+# def BOJ16637():	# 괄호 추가하기 (https://www.acmicpc.net/problem/16637)
+# 	import sys
+# 	input = sys.stdin.readline
+
+# 	def in2post(infix):
+# 		postfix = list(infix)
+# 		for i in range(len(postfix) - 1):
+# 			if (postfix[i] in '+-*') and (postfix[i + 1] not in '+-*'):
+# 				postfix[i], postfix[i + 1] = postfix[i + 1], postfix[i]
+# 		return postfix
+
+# 	def calculate(postfix):
+
+# 		def operation(left, right, op):
+# 			if op == '+':
+# 				return left+right
+# 			elif op == '-':
+# 				return left-right
+# 			elif op == '*':
+# 				return left*right
+
+# 		stack = []
+# 		for c in postfix:
+# 			if c not in '+-*':
+# 				stack.append(int(c))
+# 			else:
+# 				op = c
+# 				right = stack.pop()
+# 				left = stack.pop()
+# 				stack.append(operation(left, right, op))
+# 		return stack.pop()
+		
+# 	def DFS(post, idx, maxi):
+# 		for i in range(idx, len(post) - 3):
+# 			if (post[i] not in '+-*') and (post[i+1] in '+-*') \
+# 				and (post[i+2] not in '+-*') and (post[i+3] in '+-*'):
+# 				post[i+1], post[i+2] = post[i+2], post[i+1]
+# 				post[i+2], post[i+3] = post[i+3], post[i+2]
+
+# 				maxi = max(maxi, DFS(post, i+1, maxi))
+
+# 				post[i+2], post[i+3] = post[i+3], post[i+2]
+# 				post[i+1], post[i+2] = post[i+2], post[i+1]
+# 		return max(maxi, calculate(post))
+
+# 	n = int(input().strip())
+# 	infix = input().strip()
+# 	postfix = in2post(infix)
+# 	if n < 5: print(calculate(postfix))
+# 	else:
+# 		print(DFS(postfix, 0, -3000000000))
+# BOJ16637()
+
+# def BOJ9883():	# Morton Numbers (https://www.acmicpc.net/problem/9883)
+# 	x, y = map(int, input().split())
+# 	answer = 0
+# 	exponent = 1
+# 	while x or y:
+# 		answer += (y % 2) * exponent
+# 		y //= 2
+# 		exponent *= 2
+# 		answer += (x % 2) * exponent
+# 		x //= 2
+# 		exponent *= 2
+# 	print(answer)
+# 	return
+# BOJ9883()
+
+# def BOJ1620():	# 나는야 포켓몬 마스터 이다솜 (https://www.acmicpc.net/problem/1620)
+# 	import sys
+# 	input = sys.stdin.readline
+
+# 	n, m = map(int, input().split())
+# 	dogam = dict()
+# 	for i in range(1, n + 1):
+# 		poketmon = input().strip()
+# 		dogam[poketmon] = i
+# 		dogam[str(i)] = poketmon
+# 	for _ in range(m):
+# 		print(dogam[input().strip()])
+# BOJ1620()
+
+# def BOJ2015():	# 수들의 합 (https://www.acmicpc.net/problem/2015)
+# 	from collections import defaultdict
+# 	import sys
+# 	input = sys.stdin.readline
+
+# 	dic = defaultdict(int)
+# 	dic[0] = 1
+# 	psum, count = 0, 0
+# 	n, k = map(int, input().split())
+# 	a = list(map(int, input().split()))
+# 	for i in a:
+# 		psum += i
+# 		if (psum - k) in dic:
+# 			count += dic[psum - k]
+# 		dic[psum] += 1
+# 	print(count)
+# BOJ2015()
+
