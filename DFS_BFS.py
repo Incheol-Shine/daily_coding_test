@@ -783,61 +783,61 @@
 # BOJ1034_2()
 
 # PCCP 1회 문제 (콘센트 문제)
-def solution(sockets, cnt1, cnt2):
-	# class Param:
-	# 	def __init__(self):
-	# 		self.answer = 0
-	# 		self.cnt1 = 0
-	# 		self.cnt2 = 0
-	# p = Param()
+# def solution(sockets, cnt1, cnt2):
+# 	# class Param:
+# 	# 	def __init__(self):
+# 	# 		self.answer = 0
+# 	# 		self.cnt1 = 0
+# 	# 		self.cnt2 = 0
+# 	# p = Param()
 
-	answer = [0]
-	count1 = [cnt1]
-	count2 = [cnt2]
+# 	answer = [0]
+# 	count1 = [cnt1]
+# 	count2 = [cnt2]
 
-	def f(sockets, idx):
-		if count1[0] == 0 and count2[0] == 0:
-			answer[0] += 1
-		elif idx == len(sockets):
-			return
-		else:
-			for i in range(4):
-				if sockets[idx] == 0:
-					if i < 2 and count1[0] > 0:
-						count1[0] -= 1
-						sockets[idx] += 1
-						print(sockets)
-						f(sockets, idx + 1)
-						count1[0] += 1
-						sockets[idx] -= 1
-					elif count2[0] > 0:
-						if i == 2:
-							if (0 <= idx - 1) or (sockets[idx - 1] != 1):
-								count2[0] -= 1
-								sockets[idx] += 1
-								if 0 <= idx - 1:
-									sockets[idx - 1] += 0.5
-								f(sockets, idx + 1)
-								count2[0] += 1
-								sockets[idx] -= 1
-								if 0 <= idx - 1:
-									sockets[idx - 1] -= 0.5
-						if i == 3:
-							if (idx + 1 < len(sockets)) or (sockets[idx - 1] != 1):
-								count2[0] -= 1
-								sockets[idx] += 1
-								if idx + 1 < len(sockets):
-									sockets[idx + 1] += 0.5
-								f(sockets, idx + 1)
-								count2[0] += 1
-								sockets[idx] -= 1
-								if idx + 1 < len(sockets):
-									sockets[idx + 1] -= 0.5
-				else:
-					f(sockets, idx + 1)
-	f(sockets, 0)
-	if not(answer[0]):
-		answer[0] = -1
-	return answer[0]
+# 	def f(sockets, idx):
+# 		if count1[0] == 0 and count2[0] == 0:
+# 			answer[0] += 1
+# 		elif idx == len(sockets):
+# 			return
+# 		else:
+# 			for i in range(4):
+# 				if sockets[idx] == 0:
+# 					if i < 2 and count1[0] > 0:
+# 						count1[0] -= 1
+# 						sockets[idx] += 1
+# 						print(sockets)
+# 						f(sockets, idx + 1)
+# 						count1[0] += 1
+# 						sockets[idx] -= 1
+# 					elif count2[0] > 0:
+# 						if i == 2:
+# 							if (0 <= idx - 1) or (sockets[idx - 1] != 1):
+# 								count2[0] -= 1
+# 								sockets[idx] += 1
+# 								if 0 <= idx - 1:
+# 									sockets[idx - 1] += 0.5
+# 								f(sockets, idx + 1)
+# 								count2[0] += 1
+# 								sockets[idx] -= 1
+# 								if 0 <= idx - 1:
+# 									sockets[idx - 1] -= 0.5
+# 						if i == 3:
+# 							if (idx + 1 < len(sockets)) or (sockets[idx - 1] != 1):
+# 								count2[0] -= 1
+# 								sockets[idx] += 1
+# 								if idx + 1 < len(sockets):
+# 									sockets[idx + 1] += 0.5
+# 								f(sockets, idx + 1)
+# 								count2[0] += 1
+# 								sockets[idx] -= 1
+# 								if idx + 1 < len(sockets):
+# 									sockets[idx + 1] -= 0.5
+# 				else:
+# 					f(sockets, idx + 1)
+# 	f(sockets, 0)
+# 	if not(answer[0]):
+# 		answer[0] = -1
+# 	return answer[0]
 
-print(solution([0, 1, 0], 2, 0))
+# print(solution([0, 1, 0], 2, 0))

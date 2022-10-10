@@ -2094,3 +2094,69 @@
 # 	print(count)
 # BOJ2015()
 
+# def BOJ8979():	# 올림픽 https://www.acmicpc.net/problem/8979
+# 	import sys
+# 	input = sys.stdin.readline
+
+# 	n, k = map(int, input().split())
+# 	score_board = [[] for _ in range(n)]
+# 	for _ in range(n):
+# 		idx, *score = map(int, input().split())
+# 		score_board[idx - 1] = score
+# 	cnt = 0
+# 	for c in range(3):
+# 		for r in range(n):
+# 			if r != k - 1:
+# 				if score_board[r][c] > score_board[k - 1][c]:
+# 					cnt += 1
+# 					score_board[r] = [0, 0, 0]
+# 				elif score_board[r][c] < score_board[k - 1][c]:
+# 					score_board[r] = [0, 0, 0]
+# 	print(cnt + 1)			
+# 	return
+
+# BOJ8979()
+
+# def BOJ8979_2():	# 올림픽 2nd solution
+# 	import sys
+# 	input = sys.stdin.readline
+
+# 	n, k = map(int, input().split())
+# 	score_board = []
+# 	for _ in range(n):
+# 		contry, *score = map(int, input().split())
+# 		print(score)
+# 		if contry == k:
+# 			target = score
+# 		else:
+# 			score_board.append(score)
+
+# 	print(len([x for x in score_board if x > target]) + 1)
+# 	return
+
+# BOJ8979_2()
+
+# def BOJ8979_3():	# 올림픽 3nd solution
+# 	import sys
+# 	input = sys.stdin.readline
+
+# 	n, k = map(int, input().split())
+# 	score_board = []
+# 	for _ in range(n):
+# 		contry, *score = map(int, input().split())
+# 		if contry == k:
+# 			target = score
+# 		else:
+# 			score_board.append(score)
+
+# 	def bigger_than_target(x, target):
+# 		for c in range(3):
+# 			if x[c] > target[c]:
+# 				return 1
+# 			elif x[c] < target[c]:
+# 				return 0
+# 		return 0
+	
+# 	print(len([x for x in score_board if bigger_than_target(x, target)]) + 1)
+# 	return
+# BOJ8979_3()
