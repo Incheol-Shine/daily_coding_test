@@ -841,3 +841,45 @@
 # 	return answer[0]
 
 # print(solution([0, 1, 0], 2, 0))
+
+#PCCP 1회 문제_2번째 풀이 (콘센트 문제)
+
+# def solution(sockets, cnt1, cnt2):
+# 	sockets_cp = sockets.copy()
+# 	answer = [0]
+
+# 	def f(idx, cnt1, cnt2):
+# 		if (cnt1 == 0) and (cnt2 == 0):
+# 			answer[0] += 1
+# 			return
+# 		elif (idx == len(sockets)):
+# 			return
+# 		else:
+# 			for i in range(5):
+# 				if i == 0:
+# 					f(idx + 1, cnt1, cnt2)
+# 					continue
+# 				elif (sockets_cp[idx] == 0):
+# 					sockets_cp[idx] += 1
+# 					if cnt1 > 0 and (i == 1 or i == 2):
+# 						f(idx + 1, cnt1 - 1, cnt2)
+# 					elif cnt2 > 0 and i == 3:
+# 						if (idx - 1 >= 0) and sockets_cp[idx - 1] < 1:
+# 							sockets_cp[idx - 1] += 0.5
+# 							f(idx + 1, cnt1, cnt2 - 1)
+# 							sockets_cp[idx - 1] -= 0.5
+# 						else:
+# 							f(idx + 1, cnt1, cnt2 - 1)
+# 					elif cnt2 > 0 and i == 4:
+# 						if (idx + 1 < len(sockets)) and sockets_cp[idx + 1] < 1:
+# 							sockets_cp[idx + 1] += 0.5
+# 							f(idx + 1, cnt1, cnt2 - 1)
+# 							sockets_cp[idx + 1] -= 0.5
+# 						else:
+# 							f(idx + 1, cnt1, cnt2 - 1)
+# 					sockets_cp[idx] -= 1
+				
+# 	f(0, cnt1, cnt2)
+# 	return answer[0]
+# print(solution([0, 1, 0], 2, 0))	#4
+# print(solution([0, 1, 0], 1, 1))	#8
