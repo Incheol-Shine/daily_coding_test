@@ -330,3 +330,25 @@
 # 		print()
 # 	print(dp[-1][-1])
 # BOJ14501()
+
+# def BOJ2302():	# 극장좌석 (https://www.acmicpc.net/problem/2302)
+# 	n = int(input())
+# 	m = int(input())
+# 	vip = [0] + [int(input()) for _ in range(m)] + [n + 1]
+# 	section = [vip[i] - vip[i - 1] - 1 for i in range(1, m + 2)]
+# 	if (n == 1):
+# 		print(1)
+# 	else:
+# 		dp = [0] * (n + 1)
+# 		dp[1] = 1
+# 		dp[2] = 2
+# 		for i in range(3, n + 1):
+# 			dp[i] = dp[i - 1] + dp[i - 2]
+# 		answer = 1
+# 		for i in section:
+# 			if i != 0:
+# 				answer *= dp[i]
+# 		print(answer)
+
+# BOJ2302()
+
